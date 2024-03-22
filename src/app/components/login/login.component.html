@@ -1,0 +1,24 @@
+<div class="flex items-center justify-center h-screen w-[100%] ">
+    <div
+        class=" relative h-[65%]  flex-col justify-center shadow-lg  p-[2%] border-t-4 bg-sky-400/10 border-blue-400 rounded-xl">
+        <h1 class=" flex justify-center text-xl font-bold my-12">Welcome Adminstrator</h1>
+
+
+        <form class="flex flex-col gap-3 mx-4">
+            <input class="pl-[5%] py-[7%] h- w-96  rounded-xl " 
+            type="text"
+            placeholder="Email"
+            />
+            <input class="pl-[5%] py-[7%] h-12 w-96  rounded-xl " 
+            type="password"
+            placeholder="Password"
+            />
+            <button class="bg-blue-500 rounded-xl text-white font-bold cursor-pointer px-6 py-4 hover:bg-blue-700">
+                Login
+            </button>
+        </form>
+        <div class="mt-5">
+            Don't have an account? Please <a routerLink="/register" class="underline text-green-800">Register</a>
+        </div>
+    </div>
+</div>
