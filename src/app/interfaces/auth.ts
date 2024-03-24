@@ -4,3 +4,8 @@ export interface User {
     contact: String,
     password: String
 }
+
+export interface LoginData{
+    email: String, 
+    password: String
+}

@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { HttpClientModule } from '@angular/common/http';
 import { provideHttpClient,withFetch } from '@angular/common/http';
+import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { provideHttpClient,withFetch } from '@angular/common/http';
     NavbarComponent,
     RegisterComponent,
     LoginComponent,
-    LandingComponent
+    LandingComponent,
+    AdminDashboardComponent,
     
   ],
   imports: [

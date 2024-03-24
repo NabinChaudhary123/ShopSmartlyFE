@@ -4,7 +4,7 @@
         <h1 class=" flex justify-center text-xl font-bold my-12">Welcome Adminstrator</h1>
 
 
-        <form class="flex flex-col gap-3 mx-4" [formGroup]="loginForm">
+        <form class="flex flex-col gap-3 mx-4" [formGroup]="loginForm" (ngSubmit)="onLogin()">
             <input class="pl-[5%] py-[5%] h-12 w-96  rounded-xl" type="email" placeholder="Email" name="email"
                 formControlName="email" required />
             <small *ngIf="email.invalid && (email.dirty || email.touched)">
