@@ -3,7 +3,6 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth/auth.service';
 import { LoginData } from '../../interfaces/auth';
 import { Router } from '@angular/router';
-import { error } from 'console';
 
 @Component({
   selector: 'app-login',
@@ -37,7 +36,7 @@ export class LoginComponent {
       response =>{
         console.log(response)
       
-          localStorage.setItem('accessToken', JSON.stringify(response)) 
+          localStorage.setItem('accessToken', JSON.stringify(response))  
         
         this.router.navigate(['/AdminDashboard'])
         alert('You are logged in successfully')

@@ -1,1 +1,25 @@
-<p>admin-dashboard works!</p>
+<div class="flex justify-between mx-[7%] items center mt-12">
+    <div class="border w-[20%] bg-gray-400 rounded-xl h-[100%]  text-xl text-center">
+        <div class="userinfo my-8">
+            <h1>Nabin Chaudhary</h1>
+            <p class="text-[15px]">nabin229chaudhary&#64;gmail.com</p>
+            <hr>
+        </div>
+        
+        <div class="navs">
+            <ul class="flex flex-col justify-center items-center">
+                <button routerLink="/AdminDashboard/AdminHome" class="w-[50%] h-12 bg-gray-600 rounded my-2">Dashboard</button>
+                <button routerLink="#" class="w-[50%] h-12 bg-gray-600 rounded my-2">Products</button>
+                <button class="w-[50%] h-12 bg-gray-600 rounded my-2">Orders</button>
+                <button class="w-[50%] h-12 bg-gray-600 rounded my-2">Invoices</button>
+                <button class="w-[50%] h-12 bg-gray-600 rounded my-2"><a routerLink="/AdminDashboard/AdminCustomer">Customer</a></button>
+                <button class="w-[50%] h-12 bg-gray-600 rounded my-6">LogOut</button>
+            </ul>
+        </div>
+    </div>
+    <div class=" w-[75%] rounded-2xl h-[100vh]">
+        <router-outlet></router-outlet>
+        
+    </div>
+</div>
+

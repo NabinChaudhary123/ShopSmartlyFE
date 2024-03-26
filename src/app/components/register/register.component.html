@@ -19,12 +19,12 @@
             <input class=" w-80 py-[3%] px-[2%] mb-[2%] rounded-xl" type="text" placeholder="Contact"
                 formControlName="contact" name="contact" />
             <small *ngIf="contact.invalid && (contact.dirty || contact.touched)">
-                <p class="text-red-400">Full Name is required</p>
+                <p class="text-red-400">Contact is required</p>
             </small>
             <input class=" w-80 py-[3%] px-[2%] mb-[2%] rounded-xl" type="password" placeholder="Password"
                 formControlName="password" name="password" />
             <small *ngIf="password.invalid && (password.dirty || password.touched)">
-                <p class="text-red-400">Full Name is required</p>
+                <p class="text-red-400">password is required</p>
             </small>
             <button type="submit" class="bg-blue-400 hover:bg-blue-600 text-white font-bold cursor-pointer px-[5%] py-2 rounded-xl" [disabled]="registerForm.invalid">
                 Register

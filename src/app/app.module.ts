@@ -11,6 +11,9 @@ import { LandingComponent } from './components/landing/landing.component';
 import { HttpClientModule } from '@angular/common/http';
 import { provideHttpClient,withFetch } from '@angular/common/http';
 import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
+import { AdminCustomersComponent } from './components/admin/admin-customers/admin-customers.component';
+import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
+
 
 @NgModule({
   declarations: [
@@ -20,6 +23,9 @@ import { AdminDashboardComponent } from './components/admin/admin-dashboard/admi
     LoginComponent,
     LandingComponent,
     AdminDashboardComponent,
+    AdminCustomersComponent,
+    AdminHomeComponent
+    
     
   ],
   imports: [
