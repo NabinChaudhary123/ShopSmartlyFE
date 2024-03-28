@@ -36,7 +36,7 @@ export class LoginComponent {
       response =>{
         console.log(response)
       
-          localStorage.setItem('accessToken', JSON.stringify(response))  
+          window.localStorage.setItem('accessToken', JSON.stringify(response))  
         
         this.router.navigate(['/AdminDashboard'])
         alert('You are logged in successfully')

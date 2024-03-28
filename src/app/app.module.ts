@@ -13,6 +13,7 @@ import { provideHttpClient,withFetch } from '@angular/common/http';
 import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
 import { AdminCustomersComponent } from './components/admin/admin-customers/admin-customers.component';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
+import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { AdminHomeComponent } from './components/admin/admin-home/admin-home.com
     LandingComponent,
     AdminDashboardComponent,
     AdminCustomersComponent,
-    AdminHomeComponent
+    AdminHomeComponent,
+    AdminProductsComponent
     
     
   ],

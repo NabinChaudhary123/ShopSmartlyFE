@@ -1,5 +1,5 @@
-<div class="flex justify-between mx-[7%] items center mt-12">
-    <div class="border w-[20%] bg-gray-400 rounded-xl h-[100%]  text-xl text-center">
+<div class="flex justify-between mx-[7%] items center mt-12 ">
+    <div class="border w-[20%] bg-gray-400 rounded-xl h-[100%]  text-xl text-center fixed left-[100px] top-[145px] ">
         <div class="userinfo my-8">
             <h1>Nabin Chaudhary</h1>
             <p class="text-[15px]">nabin229chaudhary&#64;gmail.com</p>
@@ -9,7 +9,7 @@
         <div class="navs">
             <ul class="flex flex-col justify-center items-center">
                 <button routerLink="/AdminDashboard/AdminHome" class="w-[50%] h-12 bg-gray-600 rounded my-2">Dashboard</button>
-                <button routerLink="#" class="w-[50%] h-12 bg-gray-600 rounded my-2">Products</button>
+                <button routerLink="/AdminDashboard/AdminProduct" class="w-[50%] h-12 bg-gray-600 rounded my-2">Products</button>
                 <button class="w-[50%] h-12 bg-gray-600 rounded my-2">Orders</button>
                 <button class="w-[50%] h-12 bg-gray-600 rounded my-2">Invoices</button>
                 <button class="w-[50%] h-12 bg-gray-600 rounded my-2"><a routerLink="/AdminDashboard/AdminCustomer">Customer</a></button>
@@ -17,7 +17,7 @@
             </ul>
         </div>
     </div>
-    <div class=" w-[75%] rounded-2xl h-[100vh]">
+    <div class=" w-[75%] rounded-2xl h-[100vh] ml-[27%] overflow">
         <router-outlet></router-outlet>
         
     </div>
