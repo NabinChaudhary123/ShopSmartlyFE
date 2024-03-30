@@ -33,13 +33,19 @@ export class LoginComponent {
     console.log(this.loginForm.value);
     const postData = {...this.loginForm.value}
     return this.authService.loginUser(postData as LoginData).subscribe(
-      response =>{
+      (response:any) =>{
         console.log(response)
       
-          window.localStorage.setItem('accessToken', JSON.stringify(response))  
+          window.localStorage.setItem('accessToken', response.accessToken)  
         
-        this.router.navigate(['/AdminDashboard'])
-        alert('You are logged in successfully')
+        // this.router.navigate(['/AdminDashboard'])
+        // alert('You are logged in successfully')
+        if(postData.email === 'admin@gmail.com'){
+          this.router.navigate(['/AdminDashboard'])
+        }
+        else{
+          this.router.navigate(['/userDashboard'])
+        }
       },
       
       error =>{

@@ -1,10 +1,13 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
+import { AuthService } from '../services/auth/auth.service';
 
 export const authGuardGuard: CanActivateFn = (route, state) => {
 
   return new Promise<boolean>((resolve, reject) => {
-    const router = inject(Router)
+    const router = inject(Router);
+      const authService = inject(AuthService);
+   
     if (typeof window !== 'undefined') {
       const localStorageData = window.localStorage.getItem('accessToken');
       if (localStorageData != null) {
@@ -19,10 +22,7 @@ export const authGuardGuard: CanActivateFn = (route, state) => {
     else {
       reject(new Error('Window Object is not available'));
     }
+
   })
-
-
-
-
 
 };

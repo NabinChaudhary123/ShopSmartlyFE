@@ -17,7 +17,7 @@ export class ProductService {
   registerProducts(productsDto: any){
 
     return this.http.post(`${this.baseURL}/registerProducts`, productsDto);
-    // headers: this.createAuthorizationHeader()
+    
 
   }
 
@@ -28,10 +28,10 @@ export class ProductService {
 
   }
 
-  createAuthorizationHeader(): HttpHeaders{
-    let authHeaders: HttpHeaders = new HttpHeaders();
-    return authHeaders.set(
-      'Authorization',
-      'Bearer '+localStorage.getItem('accessToken'));
-  }
+  // createAuthorizationHeader(): HttpHeaders{
+  //   let authHeaders: HttpHeaders = new HttpHeaders();
+  //   return authHeaders.set(
+  //     'Authorization',
+  //     'Bearer '+localStorage.getItem('accessToken'));
+  // }
 }

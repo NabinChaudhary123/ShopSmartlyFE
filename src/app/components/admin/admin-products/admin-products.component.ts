@@ -75,6 +75,7 @@ export class AdminProductsComponent {
     console.log(formData);
     this.productService.registerProducts(formData).subscribe((response) =>{
       console.log(response)
+
     },
     (error) =>{
       console.log(error)

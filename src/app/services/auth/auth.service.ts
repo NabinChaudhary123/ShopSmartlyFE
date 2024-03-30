@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { LoginData, User } from '../../interfaces/auth';
 import { BehaviorSubject, Observable } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -12,7 +13,9 @@ export class AuthService {
   private baseURLogin = "http://localhost:8080/auth";
   
 
-  constructor(private http:HttpClient) {
+  constructor(
+    private http:HttpClient
+    ) {
    
    }
 

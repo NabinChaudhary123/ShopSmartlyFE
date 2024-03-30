@@ -9,6 +9,7 @@ import { LogOutComponent } from './components/log-out/log-out.component';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { AdminCustomersComponent } from './components/admin/admin-customers/admin-customers.component';
 import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
+import { UserDashboardComponent } from './components/user/user-dashboard/user-dashboard.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'landing',
     component: LandingComponent
+  },
+  {
+    path: 'userDashboard',
+    component: UserDashboardComponent
   },
   {
     path: 'AdminDashboard',
