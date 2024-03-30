@@ -14,7 +14,8 @@ import { AdminDashboardComponent } from './components/admin/admin-dashboard/admi
 import { AdminCustomersComponent } from './components/admin/admin-customers/admin-customers.component';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
-import { UserDashboardComponent } from './components/user/user-dashboard/user-dashboard.component'
+import { UserDashboardComponent } from './components/user/user-dashboard/user-dashboard.component';
+import { OurProductsComponent } from './components/our-products/our-products.component'
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { UserDashboardComponent } from './components/user/user-dashboard/user-da
     AdminCustomersComponent,
     AdminHomeComponent,
     AdminProductsComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
+    OurProductsComponent
     
     
   ],

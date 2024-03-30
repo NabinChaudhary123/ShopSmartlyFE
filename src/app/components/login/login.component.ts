@@ -44,7 +44,7 @@ export class LoginComponent {
           this.router.navigate(['/AdminDashboard'])
         }
         else{
-          this.router.navigate(['/userDashboard'])
+          this.router.navigate(['/landing'])
         }
       },
       

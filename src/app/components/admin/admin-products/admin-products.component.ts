@@ -84,20 +84,7 @@ export class AdminProductsComponent {
   }
 
   products: any = [];
-  // getAllProducts(){
-  //   this.productService.getAllProducts().subscribe(
-  //     (response) =>{
-  //       console.log(response)
-  //       this.products = response
-  //       response.forEach((element:any) => {
-  //         element.processedImg = 'data:image/jpeg;base64,' + element.returnedImage;
-  //         this.products.push(element);
-          
-  //       });
-  //     }
-  //   ) 
-  // }
-
+  
   getAllProducts(){
     this.productService.getAllProducts().subscribe(
       (response) =>{
