@@ -4,6 +4,8 @@ import { AuthService } from '../../services/auth/auth.service';
 import { LoginData } from '../../interfaces/auth';
 import { Router } from '@angular/router';
 
+export const AUTH_HEADER = "authorization";
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -29,6 +31,7 @@ export class LoginComponent {
     private router:Router
   ) { }
 
+
   onLogin() {
     console.log(this.loginForm.value);
     const postData = {...this.loginForm.value}
@@ -36,7 +39,12 @@ export class LoginComponent {
       (response:any) =>{
         console.log(response)
       
-          window.localStorage.setItem('accessToken', response.accessToken)  
+          window.localStorage.setItem('accessToken', response.token) 
+          window.localStorage.setItem('userId',response.userId);
+          window.localStorage.setItem('role',response.role);
+          // const tokenLength = response.headers.get(AUTH_HEADER).length;
+          // const bearerToken = response.headers.get(AUTH_HEADER).substring(7,tokenLength);
+          // window.localStorage.setItem('accessToken',bearerToken); 
         
         // this.router.navigate(['/AdminDashboard'])
         // alert('You are logged in successfully')
@@ -54,5 +62,6 @@ export class LoginComponent {
       } 
     )
   }
+
 
 }

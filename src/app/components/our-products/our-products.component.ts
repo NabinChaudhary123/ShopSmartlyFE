@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 import { ProductService } from '../../services/product/product.service';
+import { HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { CartService } from '../../services/cart/cart.service';
+import { response } from 'express';
+import { error } from 'console';
 
 @Component({
   selector: 'app-our-products',
@@ -15,7 +20,8 @@ export class OurProductsComponent {
   }
 
   constructor(
-    private productService:ProductService
+    private productService:ProductService,
+    private cartService:CartService
   ){
 
   }
@@ -45,5 +51,17 @@ export class OurProductsComponent {
         
       }
     ) 
+  }
+
+  addProductToCart(productId:any){
+    console.log(productId);
+    this.cartService.addToCart(productId).subscribe(response=>{
+      console.log(response)
+    },
+    error =>{
+      console.log(error);
+    }
+    ) 
+
   }
 }

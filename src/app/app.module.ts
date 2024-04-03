@@ -2,13 +2,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
-
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { LandingComponent } from './components/landing/landing.component';
-import { HTTP_INTERCEPTORS, HttpClientModule, withInterceptors } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { provideHttpClient,withFetch } from '@angular/common/http';
 import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
 import { AdminCustomersComponent } from './components/admin/admin-customers/admin-customers.component';
@@ -16,6 +15,7 @@ import { AdminHomeComponent } from './components/admin/admin-home/admin-home.com
 import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
 import { UserDashboardComponent } from './components/user/user-dashboard/user-dashboard.component';
 import { OurProductsComponent } from './components/our-products/our-products.component'
+// import { NgZorroAntdModule }  from 'ng-zorro-antd';
 
 
 @NgModule({

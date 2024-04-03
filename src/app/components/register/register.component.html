@@ -16,7 +16,7 @@
                 <div *ngIf="email.errors?.['required']" class="text-red-300"><b>Email is required</b></div>
                 <div *ngIf="email.errors?.['email']" class="text-red-300"><b>Email is Invalid</b></div>
             </small>
-            <input class=" w-80 py-[3%] px-[2%] mb-[2%] rounded-xl" type="text" placeholder="Contact"
+            <input class=" w-80 py-[3%] px-[2%] mb-[2%] rounded-xl" type="number" placeholder="Contact"
                 formControlName="contact" name="contact" />
             <small *ngIf="contact.invalid && (contact.dirty || contact.touched)">
                 <p class="text-red-400">Contact is required</p>
