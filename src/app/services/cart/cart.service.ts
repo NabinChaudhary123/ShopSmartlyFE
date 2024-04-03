@@ -19,4 +19,9 @@ export class CartService {
     }
     return this.http.post<[]>(`${this.url}/postCart`, cartDto)
   }
+
+  getCartByUserId():Observable<any>{
+    const userId = window.localStorage.getItem('userId');
+    return this.http.get(`${this.url}/getCartByUserId/${userId}`)
+  }
 }

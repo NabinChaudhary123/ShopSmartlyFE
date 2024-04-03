@@ -20,12 +20,12 @@
             </ul>
         </nav>
         <div class="icons flex">
-            <p><a href="">Cart</a></p>
+            <p><a routerLink="/cart" >Cart</a></p>
             <p><a routerLink="/login">auth</a></p>
             <p><a (click)="logOut()">LogOut</a></p>
         </div>
     </div>
-    <div class="section h-[4000px]">
+    <div class="section">
         <router-outlet></router-outlet>
     </div>
 </div>

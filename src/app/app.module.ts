@@ -14,8 +14,8 @@ import { AdminCustomersComponent } from './components/admin/admin-customers/admi
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
 import { UserDashboardComponent } from './components/user/user-dashboard/user-dashboard.component';
-import { OurProductsComponent } from './components/our-products/our-products.component'
-// import { NgZorroAntdModule }  from 'ng-zorro-antd';
+import { OurProductsComponent } from './components/our-products/our-products.component';
+import { CartComponent } from './components/cart/cart.component';
 
 
 @NgModule({
@@ -30,7 +30,8 @@ import { OurProductsComponent } from './components/our-products/our-products.com
     AdminHomeComponent,
     AdminProductsComponent,
     UserDashboardComponent,
-    OurProductsComponent
+    OurProductsComponent,
+    CartComponent
     
     
   ],
