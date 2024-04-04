@@ -13,7 +13,7 @@ export class CartService {
   ) { }
 
   addToCart(productId: any):Observable<any>{
-    let cartDto = {
+    const cartDto = {
       productId: productId,
       userId: window.localStorage.getItem('userId')
     }
@@ -23,5 +23,13 @@ export class CartService {
   getCartByUserId():Observable<any>{
     const userId = window.localStorage.getItem('userId');
     return this.http.get(`${this.url}/getCartByUserId/${userId}`)
+  }
+
+  increaseQuantity(productId:any):Observable<any>{
+    const cartDto = {
+      productId: productId,
+      userId: window.localStorage.getItem('userId')
+    }
+    return this.http.post(`${this.url}/addQuantity`,cartDto)
   }
 }

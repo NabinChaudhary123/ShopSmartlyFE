@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CartService } from '../../services/cart/cart.service';
 import { privateDecrypt } from 'crypto';
 import { FormBuilder } from '@angular/forms';
+import { response } from 'express';
 
 @Component({
   selector: 'app-cart',
@@ -34,6 +35,12 @@ cartItemsDto: any;
         element.processedImg = 'data:image/jpeg;base64,'+element.returnedImage;
         this.cartItems.push(element);
        });
+      })
+    }
+
+    increaseProductQuantity(productId:any){
+      this.cartService.increaseQuantity(productId).subscribe(response =>{
+        this.getCart();
       })
     }
 }
