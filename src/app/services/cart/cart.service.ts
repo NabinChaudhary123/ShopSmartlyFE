@@ -40,4 +40,9 @@ export class CartService {
     }
     return this.http.post(`${this.url}/decreaseQuantity`,cartDto)
   }
+
+  placeOrder(orderDto:any):Observable<any>{
+    orderDto.userId = window.localStorage.getItem('userId');
+    return this.http.post(`${this.url}/placeOrder`,orderDto)
+  }
 }

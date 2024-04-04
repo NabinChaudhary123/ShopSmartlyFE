@@ -3,6 +3,8 @@ import { CartService } from '../../services/cart/cart.service';
 import { privateDecrypt } from 'crypto';
 import { FormBuilder } from '@angular/forms';
 import { response } from 'express';
+import { CheckoutComponent } from '../checkout/checkout.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-cart',
@@ -18,6 +20,7 @@ cartItemsDto: any;
   constructor(
     private cartService:CartService,
     private fb:FormBuilder,
+    private dialog:MatDialog
 
     ){ }
 
@@ -48,5 +51,9 @@ cartItemsDto: any;
       this.cartService.decreaseQuantity(productId).subscribe(response =>{
         this.getCart();
       })
+    }
+
+    placeOrder(){
+      return this.dialog.open(CheckoutComponent)
     }
 }

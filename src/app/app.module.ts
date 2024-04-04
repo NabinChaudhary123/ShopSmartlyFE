@@ -16,6 +16,9 @@ import { AdminProductsComponent } from './components/admin/admin-products/admin-
 import { UserDashboardComponent } from './components/user/user-dashboard/user-dashboard.component';
 import { OurProductsComponent } from './components/our-products/our-products.component';
 import { CartComponent } from './components/cart/cart.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { AngularMaterialModule } from './AngularMaterialModule';
 
 
 @NgModule({
@@ -31,7 +34,8 @@ import { CartComponent } from './components/cart/cart.component';
     AdminProductsComponent,
     UserDashboardComponent,
     OurProductsComponent,
-    CartComponent
+    CartComponent,
+    CheckoutComponent
     
     
   ],
@@ -40,6 +44,7 @@ import { CartComponent } from './components/cart/cart.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    AngularMaterialModule
     
     
     
@@ -48,6 +53,7 @@ import { CartComponent } from './components/cart/cart.component';
   providers: [   
     provideClientHydration(),
     provideHttpClient(withFetch()),
+    provideAnimationsAsync(),
   
   ],
   bootstrap: [AppComponent]
