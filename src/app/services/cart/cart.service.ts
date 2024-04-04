@@ -32,4 +32,12 @@ export class CartService {
     }
     return this.http.post(`${this.url}/addQuantity`,cartDto)
   }
+
+  decreaseQuantity(productId:any):Observable<any>{
+    const cartDto = {
+      productId: productId,
+      userId: window.localStorage.getItem('userId')
+    }
+    return this.http.post(`${this.url}/decreaseQuantity`,cartDto)
+  }
 }

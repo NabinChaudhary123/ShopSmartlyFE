@@ -43,4 +43,10 @@ cartItemsDto: any;
         this.getCart();
       })
     }
+
+    decreaseProductQuantity(productId:any){
+      this.cartService.decreaseQuantity(productId).subscribe(response =>{
+        this.getCart();
+      })
+    }
 }

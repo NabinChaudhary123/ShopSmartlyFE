@@ -12,12 +12,12 @@
                         </div>
                         <div class="item-price">{{ item.price | currency}}</div>
                         <div class="quantity-controls">
-                            <button class="btn-primary" [disabled]="item.quantity == 1">
-                                <div>remove-circle-outline</div>
+                            <button class="btn btn-primary" [disabled]="item.quantity == 1" (click)="decreaseProductQuantity(item.productId)">
+                                <div>X</div>
                             </button>
                             <span class="quantity">{{ item.quantity }}</span>
                             <button class="btn btn-primary" (click)="increaseProductQuantity(item.productId)">
-                                <div>add-circle-outline</div>
+                                <div>+</div>
                             </button>
                         </div>
                     </div>
