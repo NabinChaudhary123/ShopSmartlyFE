@@ -16,4 +16,7 @@ export class OrderService {
     let userId = window.localStorage.getItem('userId');
     return this.http.get(`${this.url}/orderByUserId/${userId}`)
   }
+  getAllOrders():Observable<any>{
+    return this.http.get(`${this.url}/allOrders`)
+  }
 }

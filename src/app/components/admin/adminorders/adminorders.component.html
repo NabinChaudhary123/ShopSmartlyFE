@@ -1,0 +1,18 @@
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Total Amount</th>
+        <th>Payment</th>
+        <th>Address</th>
+        <th>Date</th>
+    </tr>
+    <tr *ngFor="let order of allOrders">
+        <td>{{ order.fullName }}</td>
+        <td>{{ order.description }}</td>
+        <td>{{ order.totalAmount }}</td>
+        <td>{{ order.paymentType }}</td>
+        <td>{{ order.address }}</td>
+        <td>{{ order.date }}</td>
+    </tr>
+</table>

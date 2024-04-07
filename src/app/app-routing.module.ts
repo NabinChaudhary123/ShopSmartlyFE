@@ -11,6 +11,7 @@ import { AdminProductsComponent } from './components/admin/admin-products/admin-
 import { OurProductsComponent } from './components/our-products/our-products.component';
 import { CartComponent } from './components/user/cart/cart.component';
 import { OrderComponent } from './components/user/order/order.component';
+import { AdminordersComponent } from './components/admin/adminorders/adminorders.component';
 
 const routes: Routes = [
   {
@@ -66,6 +67,11 @@ const routes: Routes = [
       {
         path: 'AdminProduct',
         component: AdminProductsComponent
+      },
+      {
+        path: 'AdminOrder',
+        component: AdminordersComponent,
+        canActivate: [authGuardGuard],
       }
     ]
   }

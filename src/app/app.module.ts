@@ -20,6 +20,7 @@ import { CheckoutComponent } from './components/user/checkout/checkout.component
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { AngularMaterialModule } from './AngularMaterialModule';
 import { OrderComponent } from './components/user/order/order.component';
+import { AdminordersComponent } from './components/admin/adminorders/adminorders.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { OrderComponent } from './components/user/order/order.component';
     OurProductsComponent,
     CartComponent,
     CheckoutComponent,
-    OrderComponent
+    OrderComponent,
+    AdminordersComponent
     
     
   ],
