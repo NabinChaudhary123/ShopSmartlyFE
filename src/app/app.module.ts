@@ -15,10 +15,11 @@ import { AdminHomeComponent } from './components/admin/admin-home/admin-home.com
 import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
 import { UserDashboardComponent } from './components/user/user-dashboard/user-dashboard.component';
 import { OurProductsComponent } from './components/our-products/our-products.component';
-import { CartComponent } from './components/cart/cart.component';
-import { CheckoutComponent } from './components/checkout/checkout.component';
+import { CartComponent } from './components/user/cart/cart.component';
+import { CheckoutComponent } from './components/user/checkout/checkout.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { AngularMaterialModule } from './AngularMaterialModule';
+import { OrderComponent } from './components/user/order/order.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { AngularMaterialModule } from './AngularMaterialModule';
     UserDashboardComponent,
     OurProductsComponent,
     CartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    OrderComponent
     
     
   ],

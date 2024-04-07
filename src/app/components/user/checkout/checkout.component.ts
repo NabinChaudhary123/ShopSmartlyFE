@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { CartService } from '../../services/cart/cart.service';
+import { CartService } from '../../../services/cart/cart.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { error } from 'console';

@@ -9,7 +9,8 @@ import { AdminHomeComponent } from './components/admin/admin-home/admin-home.com
 import { AdminCustomersComponent } from './components/admin/admin-customers/admin-customers.component';
 import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
 import { OurProductsComponent } from './components/our-products/our-products.component';
-import { CartComponent } from './components/cart/cart.component';
+import { CartComponent } from './components/user/cart/cart.component';
+import { OrderComponent } from './components/user/order/order.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,11 @@ const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent,
+    canActivate: [authGuardGuard],
+  },
+  {
+    path: 'order',
+    component: OrderComponent,
     canActivate: [authGuardGuard],
   },
   {
