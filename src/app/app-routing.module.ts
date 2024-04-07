@@ -36,7 +36,8 @@ const routes: Routes = [
   },
   {
     path: 'cart',
-    component: CartComponent
+    component: CartComponent,
+    canActivate: [authGuardGuard],
   },
   {
     path: 'AdminDashboard',

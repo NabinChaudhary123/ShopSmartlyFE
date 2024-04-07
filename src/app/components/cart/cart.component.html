@@ -10,7 +10,7 @@
                         <div class="item-name" [ngClass]="{ 'highlight': item.highlighted }">
                         {{ item.productName}}
                         </div>
-                        <div class="item-price">{{ item.price | currency}}</div>
+                        <div class="item-price">{{ item.price | currency }}</div>
                         <div class="quantity-controls">
                             <button class="btn btn-primary" [disabled]="item.quantity == 1" (click)="decreaseProductQuantity(item.productId)">
                                 <div>X</div>
@@ -24,17 +24,18 @@
                 </div>
             </div>
             <div class="total-price">
-                Total Amount: {{ order.totalAmount | currency}}
-            </div>
-            <div class="total-price">
-                Amount: {{ order.totalAmount | currency }}
-            </div>
-            <div>
-                <button class=" btn btn-primary" (click)="placeOrder()">Place Order</button>
+                 Total Price: {{ item.totalPrice | currency}}
             </div>
 
         </div>
     </div>
+</div>
+<hr><hr>
+<div class="total-price">
+    Amount: {{ order.totalAmount | currency }}
+</div>
+<div>
+    <button class=" btn btn-primary" (click)="placeOrder()">Place Order</button>
 </div>
 
 <ng-template #emptyCart>

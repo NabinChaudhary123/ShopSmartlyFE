@@ -12,8 +12,14 @@ export class CartService {
     private http:HttpClient
   ) { }
 
-  addToCart(productId: any):Observable<any>{
-    const cartDto = {
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.getCartByUserId();
+  }
+
+  addToCart(productId:number):Observable<any>{
+    let cartDto = {
       productId: productId,
       userId: window.localStorage.getItem('userId')
     }
@@ -21,11 +27,11 @@ export class CartService {
   }
 
   getCartByUserId():Observable<any>{
-    const userId = window.localStorage.getItem('userId');
+    let userId = window.localStorage.getItem('userId');
     return this.http.get(`${this.url}/getCartByUserId/${userId}`)
   }
 
-  increaseQuantity(productId:any):Observable<any>{
+  increaseQuantity(productId:number):Observable<any>{
     const cartDto = {
       productId: productId,
       userId: window.localStorage.getItem('userId')
@@ -33,7 +39,7 @@ export class CartService {
     return this.http.post(`${this.url}/addQuantity`,cartDto)
   }
 
-  decreaseQuantity(productId:any):Observable<any>{
+  decreaseQuantity(productId:number):Observable<any>{
     const cartDto = {
       productId: productId,
       userId: window.localStorage.getItem('userId')
@@ -41,8 +47,8 @@ export class CartService {
     return this.http.post(`${this.url}/decreaseQuantity`,cartDto)
   }
 
-  placeOrder(orderDto:any):Observable<any>{
-    orderDto.userId = window.localStorage.getItem('userId');
-    return this.http.post(`${this.url}/placeOrder`,orderDto)
+  placeOrder(placeOrderDto:any):Observable<any>{
+    placeOrderDto.userId = window.localStorage.getItem('userId');
+    return this.http.post(`${this.url}/placeOrder`,placeOrderDto)
   }
 }

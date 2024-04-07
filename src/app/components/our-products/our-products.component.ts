@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { ProductService } from '../../services/product/product.service';
-import { HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { CartService } from '../../services/cart/cart.service';
-import { response } from 'express';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { error } from 'console';
 
 @Component({
@@ -21,7 +21,9 @@ export class OurProductsComponent {
 
   constructor(
     private productService:ProductService,
-    private cartService:CartService
+    private cartService:CartService,
+    private snackbar:MatSnackBar,
+    private router:Router
   ){
 
   }
@@ -53,15 +55,18 @@ export class OurProductsComponent {
     ) 
   }
 
-  addProductToCart(productId:any){
-    console.log(productId);
+  addProductToCart(productId:number){
+    // console.log(productId);
     this.cartService.addToCart(productId).subscribe(response=>{
-      console.log(response)
+      console.log(response);
+      this.snackbar.open("Added to cart","Close",{duration:3000})
+      
     },
-    error =>{
-      console.log(error);
+    error=>{
+      this.snackbar.open("Something went wrong","Close",{duration:3000})
     }
-    ) 
+  )
+     
 
   }
 }

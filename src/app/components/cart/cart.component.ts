@@ -5,6 +5,7 @@ import { FormBuilder } from '@angular/forms';
 import { response } from 'express';
 import { CheckoutComponent } from '../checkout/checkout.component';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-cart',
@@ -15,12 +16,12 @@ export class CartComponent {
 
   cartItems: any[] = [];
   order: any;
-cartItemsDto: any;
 
   constructor(
     private cartService:CartService,
     private fb:FormBuilder,
-    private dialog:MatDialog
+    private dialog:MatDialog,
+    private snackBar:MatSnackBar
 
     ){ }
 
@@ -41,15 +42,17 @@ cartItemsDto: any;
       })
     }
 
-    increaseProductQuantity(productId:any){
-      this.cartService.increaseQuantity(productId).subscribe(response =>{
+    increaseProductQuantity(productId:number){
+      this.cartService.increaseQuantity(productId).subscribe((response) =>{
         this.getCart();
+        this.snackBar.open("Quantity increased","Close",{duration:2000})
       })
     }
 
     decreaseProductQuantity(productId:any){
-      this.cartService.decreaseQuantity(productId).subscribe(response =>{
+      this.cartService.decreaseQuantity(productId).subscribe((response) =>{
         this.getCart();
+        this.snackBar.open("Quantity decreased","Close",{duration:2000})
       })
     }
 
