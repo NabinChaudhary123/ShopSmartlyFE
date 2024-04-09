@@ -1,12 +1,12 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
-import { AuthService } from '../services/auth/auth.service';
+import { AuthService } from '../../services/auth/auth.service';
 
 export const authGuardGuard: CanActivateFn = (route, state) => {
 
   return new Promise<boolean>((resolve, reject) => {
     const router = inject(Router);
-      const authService = inject(AuthService);
+      
    
     if (typeof window !== 'undefined') {
       const localStorageData = window.localStorage.getItem('accessToken');

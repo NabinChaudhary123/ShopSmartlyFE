@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
 export class NavbarComponent {
 
   constructor(
-    private router:Router
+    private router:Router,
+    public authService:AuthService
   ){}
 
  logOut(){

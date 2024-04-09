@@ -4,7 +4,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
-import { authGuardGuard } from './guard/auth-guard.guard';
+import { authGuardGuard } from './guard/auth/auth-guard.guard';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { AdminCustomersComponent } from './components/admin/admin-customers/admin-customers.component';
 import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
@@ -12,6 +12,8 @@ import { OurProductsComponent } from './components/our-products/our-products.com
 import { CartComponent } from './components/user/cart/cart.component';
 import { OrderComponent } from './components/user/order/order.component';
 import { AdminordersComponent } from './components/admin/adminorders/adminorders.component';
+import { adminGuard } from './guard/admin/admin.guard';
+import { loginGuard } from './guard/login/login.guard';
 
 const routes: Routes = [
   {
@@ -21,11 +23,13 @@ const routes: Routes = [
   },
   {
     path: 'register',
-    component: RegisterComponent
+    component: RegisterComponent,
+    canActivate: [loginGuard]
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [loginGuard]
   },
   {
     path: 'landing',
@@ -49,7 +53,7 @@ const routes: Routes = [
   {
     path: 'AdminDashboard',
     component: AdminDashboardComponent,
-    canActivate: [authGuardGuard],
+    canActivate: [authGuardGuard, adminGuard],
     children: [
       {
         path: 'AdminHome',
@@ -71,7 +75,7 @@ const routes: Routes = [
       {
         path: 'AdminOrder',
         component: AdminordersComponent,
-        canActivate: [authGuardGuard],
+        
       }
     ]
   }

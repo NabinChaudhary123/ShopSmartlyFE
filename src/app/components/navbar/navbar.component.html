@@ -20,9 +20,10 @@
             </ul>
         </nav>
         <div class="icons flex">
-            <p><a routerLink="/cart" >Cart</a></p>
-            <p><a routerLink="/login">auth</a></p>
-            <p><a (click)="logOut()">LogOut</a></p>
+            <p><a routerLink="/cart" *ngIf="authService.isUserLoggedIn()">Cart</a></p>
+            <p><a routerLink="/login" *ngIf="!authService.isUserLoggedIn()">auth</a></p>
+            <p><a (click)="logOut()" *ngIf="authService.isUserLoggedIn()">LogOut</a></p>
+            <p><a *ngIf="authService.getUserRole()=='ADMIN' && authService.isUserLoggedIn()">Profile</a></p>
         </div>
     </div>
     <div class="section">

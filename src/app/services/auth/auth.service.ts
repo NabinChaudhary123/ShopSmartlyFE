@@ -27,6 +27,15 @@ export class AuthService {
     return this.http.post(`${this.baseURLogin}/loginUser`, userDetails)
   }
 
+  isUserLoggedIn():boolean{
+    const token = window.localStorage.getItem('accessToken');
+    return !!token;
+  }
+
+  getUserRole():string | null{
+    return window.localStorage.getItem('role');
+  }
+
 
 
 
