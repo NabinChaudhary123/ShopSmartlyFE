@@ -21,6 +21,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { AngularMaterialModule } from './AngularMaterialModule';
 import { OrderComponent } from './components/user/order/order.component';
 import { AdminordersComponent } from './components/admin/adminorders/adminorders.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { AdminordersComponent } from './components/admin/adminorders/adminorders
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    FontAwesomeModule
     
     
     

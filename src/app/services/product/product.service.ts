@@ -15,23 +15,16 @@ export class ProductService {
   ) { }
 
   registerProducts(productsDto: any){
-
-    return this.http.post(`${this.baseURL}/registerProducts`, productsDto);
-    
-
+    return this.http.post(`${this.baseURL}/registerProducts`, productsDto);  
   }
 
   getAllProducts():Observable<any>{
     return this.http.get(`${this.baseURL}/listProducts`);
-
-   
-
   }
 
-  // createAuthorizationHeader(): HttpHeaders{
-  //   let authHeaders: HttpHeaders = new HttpHeaders();
-  //   return authHeaders.set(
-  //     'Authorization',
-  //     'Bearer '+localStorage.getItem('accessToken'));
-  // }
+  getProductByCategory(category:string){
+    return this.http.get(`${this.baseURL}/products?category=${category}`);
+  }
+
+
 }

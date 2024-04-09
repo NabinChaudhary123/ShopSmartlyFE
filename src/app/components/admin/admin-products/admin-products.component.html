@@ -36,12 +36,12 @@
     <h1 class="text-3xl py-3">All Products: {{products.length}}</h1>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xl">
-        <div *ngFor="let product of products" class="w-[300px] h-[300px] rounded-xl bg-gray-100">
-            <img [src]="product.processedImg" alt="images" class="w-[300px] rounded-xl">
-            <p class="ml-4 mt-2">{{product.productName}}</p>
-            <p class="ml-4 mt-1">{{product.productDescription}}</p>
-            <p  class="ml-4 mt-1">{{product.category}}</p>
-            <p  class="ml-4 mt-1">{{product.price}}</p>
+        <div *ngFor="let product of products" class="w-[300px] rounded-xl bg-gray-100">
+            <img [src]="product.processedImg" alt="images" class="w-[300px] h-[250px] rounded-xl">
+            <p class="pl-4 mt-2">{{product.productName}}</p>
+            <p class="pl-4 mt-1 text-sm">{{product.productDescription.slice(0,40)}}{{product.productDescription.length > 40 ? '...':''}}</p>
+            <p  class="pl-4 mt-1">Category: {{product.category}}</p>
+            <p  class="pl-4 mt-1">Price: {{product.price}}</p>
         </div>
     </div>
     

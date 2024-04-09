@@ -14,9 +14,11 @@ import { error } from 'console';
 export class OurProductsComponent {
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
     this.getAllProducts();
+
+    //for mens category
+    this.getProductsByMenCategory('mens');
+    this.getProductsByWomenCategory('womens')
   }
 
   constructor(
@@ -27,7 +29,6 @@ export class OurProductsComponent {
   ){
 
   }
-
   
   selectedFile!: File;
   imagePreview: String | ArrayBuffer | null | undefined;
@@ -41,6 +42,8 @@ export class OurProductsComponent {
   }
 
   products: any = [];
+  menProducts: any = [];
+  womenProducts: any = [];
   
   getAllProducts(){
     this.productService.getAllProducts().subscribe(
@@ -65,8 +68,23 @@ export class OurProductsComponent {
     error=>{
       this.snackbar.open("Something went wrong","Close",{duration:3000})
     }
-  )
-     
+  )}
 
+  getProductsByMenCategory(category:string){
+    this.productService.getProductByCategory(category).subscribe((response:any) =>{
+      this.menProducts = response.map((element:any) => {
+        element.processedImg = 'data:image/jpeg;base64,' + element.returnedImage;
+        return element;
+      })
+    })
+  }
+  getProductsByWomenCategory(category:string){
+    this.productService.getProductByCategory(category).subscribe((response:any) =>{
+      this.womenProducts = response.map((element:any)=>{
+        element.processedImg = 'data:image/jpeg;base64,' + element.returnedImage;
+        return element;
+      })
+    })
   }
 }
+
