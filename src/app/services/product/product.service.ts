@@ -26,5 +26,9 @@ export class ProductService {
     return this.http.get(`${this.baseURL}/products?category=${category}`);
   }
 
+  deleteProduct(productId:number):Observable<any>{
+    return this.http.delete( `${this.baseURL}/deleteProduct/${productId}`);
+  }
+
 
 }

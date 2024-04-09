@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductService } from '../../../services/product/product.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-admin-products',
@@ -48,7 +49,8 @@ export class AdminProductsComponent {
 
   constructor(
     private fb:FormBuilder,
-    private productService:ProductService
+    private productService:ProductService,
+    private snackBar:MatSnackBar
   ){}
 
   previewImage(){
@@ -98,6 +100,13 @@ export class AdminProductsComponent {
     ) 
   }
 
+  deleteProduct(productId:number){
+    console.log(productId);
+    this.productService.deleteProduct(productId).subscribe(response=>{
+      console.log(response);
+      this.snackBar.open("Product deleted successfully","Close",{duration:3000})
+    })
+  }
 
 
 }

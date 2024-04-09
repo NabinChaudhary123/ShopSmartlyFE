@@ -42,6 +42,7 @@
             <p class="pl-4 mt-1 text-sm">{{product.productDescription.slice(0,40)}}{{product.productDescription.length > 40 ? '...':''}}</p>
             <p  class="pl-4 mt-1">Category: {{product.category}}</p>
             <p  class="pl-4 mt-1">Price: {{product.price}}</p>
+            <button class="btn btn-danger" (click)="deleteProduct(product.productId)">Delete</button>
         </div>
     </div>
     
