@@ -77,6 +77,7 @@ export class AdminProductsComponent {
     console.log(formData);
     this.productService.registerProducts(formData).subscribe((response) =>{
       console.log(response)
+      this.snackBar.open("Product registered successfully","Close",{duration:3000});
 
     },
     (error) =>{

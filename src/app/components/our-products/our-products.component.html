@@ -1,18 +1,18 @@
 <div class="mx-auto w-[80%]">
     <h1 class="text-3xl py-3">All Products: {{products.length}}</h1>
 
-    <div class="grid grid-cols-4 gap-5 text-xl">
+    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 text-xl">
         <div *ngFor="let product of products" class="rounded-xl bg-gray-100">
-            <img [src]="product.processedImg" alt="images" class="w-full h-[250px] rounded-t-xl">
+            <img [src]="product.processedImg" alt="images" class="w-[90%] mx-auto h-[270px] rounded-b-xl">
             <div>
-                <p class="mt-2 text-center">{{product.productName}}</p>
-                <div class="h-12 border m-0">
-                    <p class=" text-sm">{{product.productDescription.slice(0,40)}}{{product.productDescription.length > 40 ? '...':''}}</p>
+                <p class="mt-2 text-center text-[#272643]">{{product.productName}}</p>
+                <div class="h-12 m-0 text-center">
+                    <p class=" text-sm">{{product.productDescription.slice(0,50)}}{{product.productDescription.length > 50 ? '...':''}}</p>
                 </div>
-                <p class="text-sm">Category: {{product.category}}</p>
-                <div class=" flex justify-between items-baseline">
+                <p class="text-sm text-center">Category: <span class="text-[#2c698d]">{{product.category}}</span></p>
+                <div class=" flex justify-evenly items-baseline">
                     <button class="btn btn-primary" (click)="addProductToCart(product.productId)">Add To Cart</button>
-                    <p class="text-sm">Price: {{product.price}}</p>
+                    <p class="text-sm text-green-900">Price: {{product.price}}</p>
                 </div>
             </div>
         </div>
@@ -22,18 +22,18 @@
 <div class="mx-auto w-[80%]">
     <h1 class="text-3xl py-3">Womens Section: {{womenProducts.length}}</h1>
 
-    <div class="grid grid-cols-4 gap-5 text-xl">
+    <div class=" text-xl grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         <div *ngFor="let product of womenProducts" class="rounded-xl bg-gray-100">
-            <img [src]="product.processedImg" alt="images" class="w-full h-[250px] rounded-t-xl">
+            <img [src]="product.processedImg" alt="images" class="w-[90%] mx-auto h-[270px] rounded-b-xl">
             <div>
-                <p class="mt-2 text-center">{{product.productName}}</p>
-                <div class="h-12 border m-0">
+                <p class="mt-2 text-center text-[#272643]">{{product.productName}}</p>
+                <div class="h-12 m-0 text-center">
                     <p class=" text-sm">{{product.productDescription.slice(0,40)}}{{product.productDescription.length > 40 ? '...':''}}</p>
                 </div>
-                <p class="text-sm">Category: {{product.category}}</p>
-                <div class=" flex justify-between items-baseline">
+                <p class="text-sm text-center">Category: {{product.category}}</p>
+                <div class=" flex justify-evenly items-baseline">
                     <button class="btn btn-primary" (click)="addProductToCart(product.productId)">Add To Cart</button>
-                    <p class="text-sm">Price: {{product.price}}</p>
+                    <p class="text-sm text-green-900">Price: {{product.price}}</p>
                 </div>
             </div>
         </div>
@@ -43,18 +43,18 @@
 <div class="mx-auto w-[80%]">
     <h1 class="text-3xl py-3">Mens Section: {{menProducts.length}}</h1>
 
-    <div class="grid grid-cols-4 gap-5 text-xl">
+    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 text-xl">
         <div *ngFor="let product of menProducts" class="rounded-xl bg-gray-100">
-            <img [src]="product.processedImg" alt="images" class="w-full h-[250px] rounded-t-xl">
+            <img [src]="product.processedImg" alt="images" class="w-[90%] mx-auto h-[270px] rounded-b-xl">
             <div>
-                <p class="mt-2 text-center">{{product.productName}}</p>
-                <div class="h-12 border m-0">
+                <p class="mt-2 text-center text-[#272643]">{{product.productName}}</p>
+                <div class="h-12 m-0 text-center">
                     <p class=" text-sm">{{product.productDescription.slice(0,40)}}{{product.productDescription.length > 40 ? '...':''}}</p>
                 </div>
-                <p class="text-sm">Category: {{product.category}}</p>
-                <div class=" flex justify-between items-baseline">
+                <p class="text-sm text-center">Category: {{product.category}}</p>
+                <div class=" flex justify-evenly items-baseline">
                     <button class="btn btn-primary" (click)="addProductToCart(product.productId)">Add To Cart</button>
-                    <p class="text-sm">Price: {{product.price}}</p>
+                    <p class="text-sm text-green-900">Price: {{product.price}}</p>
                 </div>
             </div>
         </div>
