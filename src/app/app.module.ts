@@ -22,6 +22,7 @@ import { AngularMaterialModule } from './AngularMaterialModule';
 import { OrderComponent } from './components/user/order/order.component';
 import { AdminordersComponent } from './components/admin/adminorders/adminorders.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CartComponent,
     CheckoutComponent,
     OrderComponent,
-    AdminordersComponent
+    AdminordersComponent,
+    FooterComponent
     
     
   ],
