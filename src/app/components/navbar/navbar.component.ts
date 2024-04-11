@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
 import { faCartPlus, faIdBadge, faRightFromBracket, faUser } from '@fortawesome/free-solid-svg-icons'
+import { MatDialog } from '@angular/material/dialog';
+import { ProfileComponent } from '../user/profile/profile.component';
 
 @Component({
   selector: 'app-navbar',
@@ -18,7 +20,8 @@ export class NavbarComponent {
 
   constructor(
     private router:Router,
-    public authService:AuthService
+    public authService:AuthService,
+    private dialog:MatDialog
   ){}
 
  logOut(){
@@ -27,5 +30,9 @@ export class NavbarComponent {
   window.localStorage.removeItem('role');
   this.router.navigate(['/login']);
  }
-  
+
+ getUserProfile(){
+  this.dialog.open(ProfileComponent);
+ }
+
 }

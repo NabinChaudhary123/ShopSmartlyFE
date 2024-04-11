@@ -13,7 +13,6 @@ import { AdminDashboardComponent } from './components/admin/admin-dashboard/admi
 import { AdminCustomersComponent } from './components/admin/admin-customers/admin-customers.component';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
-import { UserDashboardComponent } from './components/user/user-dashboard/user-dashboard.component';
 import { OurProductsComponent } from './components/our-products/our-products.component';
 import { CartComponent } from './components/user/cart/cart.component';
 import { CheckoutComponent } from './components/user/checkout/checkout.component';
@@ -23,6 +22,7 @@ import { OrderComponent } from './components/user/order/order.component';
 import { AdminordersComponent } from './components/admin/adminorders/adminorders.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterComponent } from './components/footer/footer.component';
+import { ProfileComponent } from './components/user/profile/profile.component';
 
 
 @NgModule({
@@ -36,13 +36,13 @@ import { FooterComponent } from './components/footer/footer.component';
     AdminCustomersComponent,
     AdminHomeComponent,
     AdminProductsComponent,
-    UserDashboardComponent,
     OurProductsComponent,
     CartComponent,
     CheckoutComponent,
     OrderComponent,
     AdminordersComponent,
-    FooterComponent
+    FooterComponent,
+    ProfileComponent
     
     
   ],

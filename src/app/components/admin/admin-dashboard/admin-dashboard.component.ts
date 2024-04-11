@@ -13,6 +13,8 @@ export class AdminDashboardComponent {
 
   logOut(){
     window.localStorage.removeItem('accessToken');
+    window.localStorage.removeItem('userId');
+    window.localStorage.removeItem('role');
     this.router.navigate(['/login']);
   }
 }

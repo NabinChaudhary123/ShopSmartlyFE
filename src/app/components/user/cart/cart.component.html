@@ -40,14 +40,14 @@
     </div>
 </div>
 
-<div>
-    <button routerLink="/order">My Orders</button>
-</div>
+   
+
 
 <ng-template #emptyCart>
-    <div class="empty-cart">
-        <i>remove shopping cart</i>
-        <span>Nothing to see here.</span>
+    <button routerLink="/order" class="btn btn-primary">My Orders</button>
+    <div class="empty-cart border w-[80%] mx-auto mt-[88px] h-[200px] text-center text-6xl">
+        <span>Nothing to see here.</span><br>
+        <button class="text-3xl">Go to <span routerLink="/OurProducts" class="text-[#2c698d]">Our Products</span></button>
     </div>
 </ng-template>
 
