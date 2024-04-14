@@ -14,6 +14,7 @@ import { OrderComponent } from './components/user/order/order.component';
 import { AdminordersComponent } from './components/admin/adminorders/adminorders.component';
 import { adminGuard } from './guard/admin/admin.guard';
 import { loginGuard } from './guard/login/login.guard';
+import { PriceDealsComponent } from './components/user/price-deals/price-deals.component';
 
 const routes: Routes = [
   {
@@ -44,6 +45,10 @@ const routes: Routes = [
     path: 'cart',
     component: CartComponent,
     canActivate: [authGuardGuard],
+  },
+  {
+    path: 'priceDeals',
+    component: PriceDealsComponent
   },
   {
     path: 'order',

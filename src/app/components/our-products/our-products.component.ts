@@ -60,6 +60,11 @@ export class OurProductsComponent {
 
   addProductToCart(productId:number){
     // console.log(productId);
+    if(!window.localStorage.getItem('userId')){
+      this.snackbar.open("Please login to add to cart","Close",{duration:3000});
+      this.router.navigate(['/login']);
+      return;
+    }
     this.cartService.addToCart(productId).subscribe(response=>{
       console.log(response);
       this.snackbar.open("Added to cart","Close",{duration:3000})

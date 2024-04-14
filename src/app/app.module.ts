@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -23,6 +23,7 @@ import { AdminordersComponent } from './components/admin/adminorders/adminorders
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterComponent } from './components/footer/footer.component';
 import { ProfileComponent } from './components/user/profile/profile.component';
+import { PriceDealsComponent } from './components/user/price-deals/price-deals.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { ProfileComponent } from './components/user/profile/profile.component';
     OrderComponent,
     AdminordersComponent,
     FooterComponent,
-    ProfileComponent
+    ProfileComponent,
+    PriceDealsComponent
     
     
   ],
@@ -52,7 +54,8 @@ import { ProfileComponent } from './components/user/profile/profile.component';
     ReactiveFormsModule,
     HttpClientModule,
     AngularMaterialModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule
     
     
     

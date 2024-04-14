@@ -1,0 +1,15 @@
+<div>
+    <label for="query">Enter search query: </label>
+    <input type="text" id="query" [(ngModel)]="query" class="border rounded-lg">
+    <button (click)="scrape()" class="btn btn-primary">Scrape</button>
+</div>
+<div *ngIf="scrapedData">
+    <h3>Scraped Data:</h3>
+    <ul>
+        <li *ngFor="let item of scrapedData" class="border rounded-xl bg-gray-400">
+        <!-- <img [src]="item.imageURL" alt="Product Image", width="100"> -->
+        <a href="{{item.link}}"><h3>Title: {{ item.title }}</h3></a>
+        <p>Price: {{ item.price }}</p>
+        </li>
+    </ul>
+  </div>
