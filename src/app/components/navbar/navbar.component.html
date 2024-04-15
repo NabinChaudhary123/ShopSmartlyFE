@@ -1,9 +1,11 @@
-<div class="h-[100%]">
-    <div class="flex justify-between items-center w-[100%] h-[70px] bg-[#2c698d] px-[3%] sticky top-0 z-10 text-white">
+<div>
+    <div
+        class="flex justify-between items-center w-full lg:w-[100%] h-[80px] bg-[#2c698d]  lg:px-[3%] sticky top-0 z-10 text-white">
         <div>
-            <img src="../../../assets/ShopSmartly.svg" width="72px" alt="Logo of ShopSmartly" routerLink="/" class="">
+            <img src="../../../assets/ShopSmartly.svg" width="100px" alt="Logo of ShopSmartly" routerLink="/"
+                class="overflow-y-hidden ">
         </div>
-        <nav> 
+        <nav class="hidden lg:block">
             <ul class="flex justify-between items-center text-[18px]">
                 <a routerLink="/OurProducts">
                     <li class="mx-2">Our Products</li>
@@ -19,18 +21,55 @@
                 </a>
             </ul>
         </nav>
-        <div class="flex justify-between items-center text-xl mt-3">
-            <p class="px-1"><a routerLink="/cart" *ngIf="authService.isUserLoggedIn()"><fa-icon [icon]="cart"></fa-icon> </a></p>
-            <p class="px-1"><a routerLink="/login" *ngIf="!authService.isUserLoggedIn()"><fa-icon [icon]="auth"></fa-icon></a></p>
-            <p class="px-1"><a (click)="logOut()" *ngIf="authService.isUserLoggedIn()"><fa-icon [icon]="logout"></fa-icon></a></p>
-            <p class="px-1" (click)="getUserProfile()"><a *ngIf=" authService.isUserLoggedIn()"><fa-icon [icon]="profile"></fa-icon> </a></p>
+        <div class="flex justify-between items-center text-2xl">
+            <p class=""><a routerLink="/cart" *ngIf="authService.isUserLoggedIn()"><fa-icon [icon]="cart"></fa-icon>
+                </a></p>
+            <p class="px-1"><a routerLink="/login" *ngIf="!authService.isUserLoggedIn()"><fa-icon
+                        [icon]="auth"></fa-icon></a></p>
+            <!-- <p class="px-1"><a (click)="logOut()" *ngIf="authService.isUserLoggedIn()"><fa-icon [icon]="logout"></fa-icon></a></p> -->
+            <p class="px-3" (click)="getUserProfile()"><a *ngIf=" authService.isUserLoggedIn()"><fa-icon
+                        [icon]="profile"></fa-icon> </a></p>
+
+            <!-- // Hamburger menu for smaller screens -->
+            <div class="block lg:hidden">
+                <button id="menu-toggle"
+                    class="flex items-center px-3 py-2 text-2xl text-white btn btn-primary"
+                    (click)="toggleMobileMenu()">
+                    <svg class="h-3 w-3 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <title>Menu</title>
+                        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+                    </svg>
+                </button>
+            </div>
+
         </div>
     </div>
+
+
+
+    <!-- //Responsive navigation menu -->
+    <div id="mobile-menu" class=" lg:hidden bg-[#2c698d] absolute top-[80px] right-0 text-center w-[50%] rounded-b-xl z-50" [ngClass]="{'hidden': !isMobileMenuOpen}">
+        <ul class="text-[18px]">
+            <a routerLink="/OurProducts">
+                <li class="block py-2 px-4 text-white">Our Products</li>
+            </a>
+            <a routerLink="/priceDeals">
+                <li class="block py-2 px-4 text-white">Price Deals</li>
+            </a>
+            <a href="">
+                <li class="block py-2 px-4 text-white">About Us</li>
+            </a>
+            <a href="">
+                <li class="block py-2 px-4 text-white">Contacts</li>
+            </a>
+        </ul>
+    </div>
+
     <div class="section">
         <router-outlet></router-outlet>
     </div>
     <div *ngIf="showFooter()">
-        <app-footer></app-footer>  
+        <app-footer></app-footer>
     </div>
-    
+
 </div>

@@ -40,4 +40,10 @@ export class NavbarComponent {
   return !currentURL.includes('AdminDashboard');
 }
 
+isMobileMenuOpen = false;
+
+toggleMobileMenu(){
+  this.isMobileMenuOpen = !this.isMobileMenuOpen;
+}
+
 }
