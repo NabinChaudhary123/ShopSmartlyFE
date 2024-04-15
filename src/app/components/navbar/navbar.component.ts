@@ -35,4 +35,9 @@ export class NavbarComponent {
   this.dialog.open(ProfileComponent);
  }
 
+ showFooter():boolean{
+  const currentURL = this.router.url;
+  return !currentURL.includes('AdminDashboard');
+}
+
 }

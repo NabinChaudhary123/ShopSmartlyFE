@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoginData, User } from '../../interfaces/auth';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -14,7 +15,8 @@ export class AuthService {
   
 
   constructor(
-    private http:HttpClient
+    private http:HttpClient,
+    private router:Router
     ) {
    
    }
@@ -35,6 +37,8 @@ export class AuthService {
   getUserRole():string | null{
     return window.localStorage.getItem('role');
   }
+
+  
 
 
 
