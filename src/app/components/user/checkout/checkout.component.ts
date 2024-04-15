@@ -3,9 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CartService } from '../../../services/cart/cart.service';
 import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
-import { error } from 'console';
-import { response } from 'express';
+import { MatDialog } from '@angular/material/dialog';;
 
 @Component({
   selector: 'app-checkout',
@@ -31,16 +29,17 @@ export class CheckoutComponent {
       address: ['', [Validators.required]],
       description: [''],
     })
-    // this.CheckOut();
   }
 
   CheckOut() {
-   console.log(this.orderForm.value);
-   this.cartService.placeOrder(this.orderForm.value).subscribe(response=>{
-    console.log(response);
-    this.snackBar.open("Order placed successfully","Close",{duration:2000})
-    this.router.navigate(['/landing'])
-    
-   })
+    console.log(this.orderForm.value);
+    this.cartService.placeOrder(this.orderForm.value).subscribe(response => {
+      console.log(response);
+      this.snackBar.open("Order placed successfully", "Close", { duration: 2000 })
+      this.router.navigate(['/landing'])
+
+    })
   }
+
+
 }
