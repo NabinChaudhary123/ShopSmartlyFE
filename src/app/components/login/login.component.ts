@@ -42,12 +42,6 @@ export class LoginComponent {
           window.localStorage.setItem('accessToken', response.token) 
           window.localStorage.setItem('userId',response.userId);
           window.localStorage.setItem('role',response.role);
-          // const tokenLength = response.headers.get(AUTH_HEADER).length;
-          // const bearerToken = response.headers.get(AUTH_HEADER).substring(7,tokenLength);
-          // window.localStorage.setItem('accessToken',bearerToken); 
-        
-        // this.router.navigate(['/AdminDashboard'])
-        // alert('You are logged in successfully')
         if(postData.email === 'admin@gmail.com'){
           this.router.navigate(['/AdminDashboard'])
         }

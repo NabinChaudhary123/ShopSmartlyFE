@@ -1,84 +1,49 @@
-<!-- <div class="flex justify-center items-center h-[100%] mt-[10%] w-[100%]">
-    <div class="shadow-lg h-[60%] px-[7%]  border-t-4 border-blue-400 rounded-xl bg-sky-100/80">
-        <h1 class="text-3xl font-bold my-4 flex justify-center ">
-            Register
-        </h1>
-
-        <form class="flex flex-col gap-3" [formGroup]="registerForm" (ngSubmit)="submitDetails()">
-            <input class=" w-80 py-[3%] px-[2%] mb-[2%] rounded-xl" type="text" placeholder="Full Name"
-                formControlName="fullName" name="fullName" />
-            <small *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)">
-                <p class="text-red-400">Full Name is required</p>
-            </small>
-            <input class=" w-80 py-[3%] px-[2%] mb-[2%] rounded-xl" type="email" placeholder="Email"
-                formControlName="email" name="email" />
-            <small *ngIf="email.invalid && (email.dirty || email.touched)">
-                <div *ngIf="email.errors?.['required']" class="text-red-300"><b>Email is required</b></div>
-                <div *ngIf="email.errors?.['email']" class="text-red-300"><b>Email is Invalid</b></div>
-            </small>
-            <input class=" w-80 py-[3%] px-[2%] mb-[2%] rounded-xl" type="number" placeholder="Contact"
-                formControlName="contact" name="contact" />
-            <small *ngIf="contact.invalid && (contact.dirty || contact.touched)">
-                <p class="text-red-400">Contact is required</p>
-            </small>
-            <input class=" w-80 py-[3%] px-[2%] mb-[2%] rounded-xl" type="password" placeholder="Password"
-                formControlName="password" name="password" />
-            <small *ngIf="password.invalid && (password.dirty || password.touched)">
-                <p class="text-red-400">password is required</p>
-            </small>
-            <button type="submit" class="bg-blue-400 hover:bg-blue-600 text-white font-bold cursor-pointer px-[5%] py-2 rounded-xl" [disabled]="registerForm.invalid">
-                Register
-            </button>
-        </form>
-        <div class="my-4">
-            <p>Already have an account ?
-                <a class="underline text-red-600" routerLink="/login">Login</a>
-            </p>
-        </div>
-    </div>
-</div> -->
-
-<!-- new -->
-<div class="bg-[#97cdf1] flex w-[53%] mx-auto justify-between rounded-2xl mt-[60px] items-center">
-    <div>
-        <div class="pl-[70px] mt-[50px]">
+<div class="bg-[#97cdf1] flex flex-col md:flex-row md:w-[53%] mx-auto justify-between rounded-2xl mt-[60px] items-center">
+    <div class="md:w-[50%]">
+        <div class="pl-6 md:pl-[70px] mt-6 md:mt-[50px]">
             <h1 class="text-[#4a7994] text-3xl"><b>Register</b></h1>
             <p class="text-sm py-3 text-gray-600">New to System, Please Register</p>
         </div>
-        <form class="mx-auto pl-[70px]" [formGroup]="registerForm" (ngSubmit)="submitDetails()">
-            <div>
-                <input type="text" placeholder="Full Name" name="fullName" formControlName="fullName" class="rounded-xl w-[270px] h-[40px] mt-6 pl-[20px]">
+        <form class="mx-auto md:pl-6 lg:pl-[70px]" [formGroup]="registerForm" (ngSubmit)="submitDetails()">
+            <div class="mt-4 md:mt-6">
+                <input type="text" placeholder="Full Name" name="fullName" formControlName="fullName"
+                    class="rounded-xl w-full md:w-[270px] h-[40px] pl-[20px]">
                 <small *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)">
                     <p class="text-red-500"><b>Full Name is required</b></p>
                 </small>
             </div>
-            <div>
-                <input type="number" placeholder="Contact" name="contact" formControlName="contact" class="rounded-xl w-[270px] h-[40px] mt-6 pl-[20px]">
+            <div class="mt-4 md:mt-6">
+                <input type="number" placeholder="Contact" name="contact" formControlName="contact"
+                class="rounded-xl w-full md:w-[270px] h-[40px] pl-[20px]">
                 <small *ngIf="contact.invalid && (contact.dirty || contact.touched)">
                     <p class="text-red-500"><b>Contact is required</b></p>
                 </small>
             </div>
-            <div>
-                <input type="email" placeholder="Email" name="email" formControlName="email" class="rounded-xl w-[270px] h-[40px] mt-6 pl-[20px]">
+            <div class="mt-4 md:mt-6">
+                <input type="email" placeholder="Email" name="email" formControlName="email"
+                class="rounded-xl w-full md:w-[270px] h-[40px] pl-[20px]">
                 <small *ngIf="email.invalid && (email.dirty || email.touched)">
                     <div *ngIf="email.errors?.['required']" class="text-red-500 pl-4"><b>Email is required</b></div>
                     <div *ngIf="email.errors?.['email']" class="text-red-500 pl-4"><b>Email is invalid</b></div>
                 </small>
             </div>
-            <div>
-                <input type="password" placeholder="Password" name="password" formControlName="password" class="rounded-xl w-[270px] mt-4 h-[40px] pl-[20px]">
+            <div class="mt-4 md:mt-6">
+                <input type="password" placeholder="Password" name="password" formControlName="password"
+                class="rounded-xl w-full md:w-[270px] h-[40px] pl-[20px]">
                 <small *ngIf="password.invalid && (password.dirty || password.touched)">
                     <p class="text-red-500 pl-4 bold"><b>Password is required</b></p>
                 </small>
-            </div> 
-            <div>
-                <button type="submit" class="rounded-xl bg-[#2f95d0] text-white w-[270px] h-[40px] my-4">Register</button>
             </div>
-            <hr>
-            <p class="text-sm my-4 text-center text-gray-600">If You Already Have An Account, <a class="underline text-green-800 text-lg" routerLink="/login">Log in</a></p>
-        </form> 
+            <div>
+                <button type="submit"
+                    class="rounded-xl bg-[#2f95d0] text-white w-[270px] h-[40px] my-4">Register</button>
+            </div>
+            <hr class="mt-6">
+            <p class="text-sm mt-6 mb-4 text-gray-600">If You Already Have An Account, <a
+                    class="underline text-green-800 text-lg" routerLink="/login">   Log in</a></p>
+        </form>
     </div>
-    <div class="img">
-        <img src="../../../assets/login1.png" alt="image" class="w-[400px] h-[530px] rounded-3xl">
+    <div class=" hidden md:block md:w-[50%]">
+        <img src="../../../assets/login1.png" alt="image" class="w-full md:w-[400px] h-[530px] rounded-3xl">
     </div>
 </div>
