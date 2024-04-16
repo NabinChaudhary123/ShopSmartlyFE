@@ -37,7 +37,14 @@ export class NavbarComponent {
 
  showFooter():boolean{
   const currentURL = this.router.url;
-  return !currentURL.includes('AdminDashboard');
+  // return !currentURL.includes('AdminDashboard');
+  const excludePages = ['AdminDashboard','login','register'];
+  for(const page of excludePages){
+    if(currentURL.includes(page)){
+      return false;
+    }
+  }
+  return true;
 }
 
 isMobileMenuOpen = false;

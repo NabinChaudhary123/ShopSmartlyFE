@@ -1,6 +1,5 @@
 <div>
-    <div
-        class="flex justify-between items-center h-[80px] bg-[#2c698d]  lg:px-[3%] sticky top-0 z-10 text-white">
+    <div class="flex justify-between items-center h-[80px] bg-[#2c698d]  lg:px-[3%] sticky top-0 z-10 text-white">
         <div>
             <img src="../../../assets/ShopSmartly.svg" width="100px" alt="Logo of ShopSmartly" routerLink="/"
                 class="overflow-y-hidden ">
@@ -14,15 +13,12 @@
                     <li class="mx-2">Price Deals</li>
                 </a>
                 <a href="">
-                    <li class="mx-2">About Us</li>
-                </a>
-                <a href="">
                     <li class="mx-2">Contacts</li>
                 </a>
             </ul>
         </nav>
         <div class="flex justify-between items-center text-2xl">
-            <p class=""><a routerLink="/cart" *ngIf="authService.isUserLoggedIn()"><fa-icon [icon]="cart"></fa-icon>
+            <p class=""><a routerLink="/cart" *ngIf="authService.getUserRole()=='USER'"><fa-icon [icon]="cart"></fa-icon>
                 </a></p>
             <p class="px-1"><a routerLink="/login" *ngIf="!authService.isUserLoggedIn()"><fa-icon
                         [icon]="auth"></fa-icon></a></p>
@@ -32,8 +28,7 @@
 
             <!-- // Hamburger menu for smaller screens -->
             <div class="block lg:hidden">
-                <button id="menu-toggle"
-                    class="flex items-center px-3 py-2 text-2xl text-white btn btn-primary"
+                <button id="menu-toggle" class="flex items-center px-3 py-2 text-2xl text-white btn btn-primary"
                     (click)="toggleMobileMenu()">
                     <svg class="h-3 w-3 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <title>Menu</title>
@@ -45,10 +40,9 @@
         </div>
     </div>
 
-
-
     <!-- //Responsive navigation menu -->
-    <div id="mobile-menu" class=" lg:hidden bg-[#2c698d] absolute top-[80px] right-0 text-center rounded-b-xl z-50" [ngClass]="{'hidden': !isMobileMenuOpen}">
+    <div id="mobile-menu" class=" lg:hidden bg-[#2c698d] absolute top-[80px] right-0 text-center rounded-b-xl z-50"
+        [ngClass]="{'hidden': !isMobileMenuOpen}">
         <ul class="text-[18px]">
             <a routerLink="/OurProducts">
                 <li class="block py-2 px-4 text-white">Our Products</li>
@@ -57,14 +51,12 @@
                 <li class="block py-2 px-4 text-white">Price Deals</li>
             </a>
             <a href="">
-                <li class="block py-2 px-4 text-white">About Us</li>
-            </a>
-            <a href="">
                 <li class="block py-2 px-4 text-white">Contacts</li>
             </a>
         </ul>
     </div>
 
+    <!-- // dynamic change in section -> router-outlet -->
     <div class="section">
         <router-outlet></router-outlet>
     </div>
