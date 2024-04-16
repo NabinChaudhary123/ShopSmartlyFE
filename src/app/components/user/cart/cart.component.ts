@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { CartService } from '../../../services/cart/cart.service';
-import { privateDecrypt } from 'crypto';
 import { FormBuilder } from '@angular/forms';
-import { response } from 'express';
 import { CheckoutComponent } from '../checkout/checkout.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';

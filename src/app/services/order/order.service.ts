@@ -22,4 +22,7 @@ export class OrderService {
   generatePDF(){
     return this.http.get<any>(`${this.url}/generatePDF`);
   }
+  getRecentOrders(){
+    return this.http.get<any>(`${this.url}/allOrdersDesc`);
+  }
 }

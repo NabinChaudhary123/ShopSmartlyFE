@@ -18,7 +18,10 @@ export class OurProductsComponent {
 
     //for mens category
     this.getProductsByMenCategory('mens');
+    //for womens category
     this.getProductsByWomenCategory('womens')
+    //for childrens category
+    this.getProductsByChildrenCategory('childrens');
   }
 
   constructor(
@@ -44,6 +47,7 @@ export class OurProductsComponent {
   products: any = [];
   menProducts: any = [];
   womenProducts: any = [];
+  childrenProducts: any = [];
   
   getAllProducts(){
     this.productService.getAllProducts().subscribe(
@@ -86,6 +90,15 @@ export class OurProductsComponent {
   getProductsByWomenCategory(category:string){
     this.productService.getProductByCategory(category).subscribe((response:any) =>{
       this.womenProducts = response.map((element:any)=>{
+        element.processedImg = 'data:image/jpeg;base64,' + element.returnedImage;
+        return element;
+      })
+    })
+  }
+
+  getProductsByChildrenCategory(category:string){
+    this.productService.getProductByCategory(category).subscribe((response:any) =>{
+      this.childrenProducts = response.map((element:any)=>{
         element.processedImg = 'data:image/jpeg;base64,' + element.returnedImage;
         return element;
       })
