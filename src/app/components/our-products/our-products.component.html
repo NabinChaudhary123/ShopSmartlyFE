@@ -9,7 +9,7 @@
                 <div class="h-12 m-0 text-center">
                     <p class=" text-sm">{{product.productDescription.slice(0,50)}}{{product.productDescription.length > 50 ? '...':''}}</p>
                 </div>
-                <p class="text-sm text-center">Category: <span class="text-[#2c698d]">{{product.category}}</span></p>
+                <p class="text-sm text-center">Category: <span class="text-[#139696]">{{product.category}}</span></p>
                 <div class=" flex justify-evenly items-baseline">
                     <button class="btn btn-primary" (click)="addProductToCart(product.productId)">Add To Cart</button>
                     <p class="text-sm text-green-900">Price: {{product.price}}</p>
@@ -20,7 +20,7 @@
 </div>
 
 <div class="mx-auto w-[80%]">
-    <h1 class="text-3xl py-3">Womens Section: {{womenProducts.length}}</h1>
+    <h1 class="text-4xl py-3 mt-7 text-[#2c698d]">Womens Section: {{womenProducts.length}}</h1>
 
     <div class=" text-xl grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         <div *ngFor="let product of womenProducts" class="rounded-xl bg-gray-100">
@@ -30,7 +30,7 @@
                 <div class="h-12 m-0 text-center">
                     <p class=" text-sm">{{product.productDescription.slice(0,40)}}{{product.productDescription.length > 40 ? '...':''}}</p>
                 </div>
-                <p class="text-sm text-center">Category: {{product.category}}</p>
+                <p class="text-sm text-center">Category: <span class="text-[#139696]">{{product.category}}</span></p>
                 <div class=" flex justify-evenly items-baseline">
                     <button class="btn btn-primary" (click)="addProductToCart(product.productId)">Add To Cart</button>
                     <p class="text-sm text-green-900">Price: {{product.price}}</p>
@@ -41,7 +41,7 @@
 </div>
 
 <div class="mx-auto w-[80%]">
-    <h1 class="text-3xl py-3">Mens Section: {{menProducts.length}}</h1>
+    <h1 class="text-4xl py-3 mt-7 text-[#2c698d]">Mens Section: {{menProducts.length}}</h1>
 
     <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 text-xl">
         <div *ngFor="let product of menProducts" class="rounded-xl bg-gray-100">
@@ -51,7 +51,7 @@
                 <div class="h-12 m-0 text-center">
                     <p class=" text-sm">{{product.productDescription.slice(0,40)}}{{product.productDescription.length > 40 ? '...':''}}</p>
                 </div>
-                <p class="text-sm text-center">Category: {{product.category}}</p>
+                <p class="text-sm text-center">Category: <span class="text-[#139696]">{{product.category}}</span></p>
                 <div class=" flex justify-evenly items-baseline">
                     <button class="btn btn-primary" (click)="addProductToCart(product.productId)">Add To Cart</button>
                     <p class="text-sm text-green-900">Price: {{product.price}}</p>
@@ -63,7 +63,7 @@
 
 
 <div class="mx-auto w-[80%]">
-    <h1 class="text-3xl py-3"> Childrens Section: {{childrenProducts.length}}</h1>
+    <h1 class="text-4xl py-3 mt-7 text-[#2c698d]"> Childrens Section: {{childrenProducts.length}}</h1>
 
     <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 text-xl">
         <div *ngFor="let product of childrenProducts" class="rounded-xl bg-gray-100">
@@ -73,7 +73,7 @@
                 <div class="h-12 m-0 text-center">
                     <p class=" text-sm">{{product.productDescription.slice(0,40)}}{{product.productDescription.length > 40 ? '...':''}}</p>
                 </div>
-                <p class="text-sm text-center">Category: {{product.category}}</p>
+                <p class="text-sm text-center">Category: <span class="text-[#139696]">{{product.category}}</span></p>
                 <div class=" flex justify-evenly items-baseline">
                     <button class="btn btn-primary" (click)="addProductToCart(product.productId)">Add To Cart</button>
                     <p class="text-sm text-green-900">Price: {{product.price}}</p>

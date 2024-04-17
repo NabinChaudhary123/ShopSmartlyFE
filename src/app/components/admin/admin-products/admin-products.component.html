@@ -1,31 +1,42 @@
 <div class="w-full md:w-[100%] bg-gray-300 rounded-2xl">
-    <form class="w-full md:w-[90%] m-auto" [formGroup]="productForm" (ngSubmit)="registerproducts()">
+    <form class="w-full md:w-[90%] m-auto" [formGroup]="productForm" (ngSubmit)="registerProducts()">
         <div class="mb-3 pt-7">
             <label for="exampleInputName" class="form-label pl-6 md:pl-0">Product Name</label>
             <input type="text" class="form-control w-[90%] md:w-full mx-auto" id="exampleInputName"
                 formControlName="productName" name="productName">
+                <small *ngIf="productName.invalid && (productName.dirty || productName.touched)">
+                    <p class="text-red-500"><b>Product Name is required</b></p></small>
         </div>
         <div class="mb-3">
             <label for="exampleInputDescription" class="form-label  pl-6 md:pl-0">Product Description</label>
             <input type="text" class="form-control w-[90%] md:w-full mx-auto" id="exampleInputDescription"
                 formControlName="productDescription" name="productDescription">
+                <small *ngIf="productDescription.invalid && (productDescription.dirty || productDescription.touched)">
+                    <p class="text-red-500"><b>Product Description is required</b></p></small>
         </div>
         <div class="flex flex-col md:flex-row justify-between">
             <div class="mb-3">
                 <label for="exampleInputCategory" class="form-label  pl-6 md:pl-0">Category</label>
                 <input type="text" class="form-control md:w-[400px] w-[90%] mx-auto" id="exampleInputCategory"
                     formControlName="category" name="category" placeholder="[Mens || Womens || Childrens]">
+                    <small *ngIf="category?.invalid && (category?.dirty || category?.touched)">Category required</small>
+                    <small *ngIf="category?.hasError('invalidCategory')" class="text-red-500">  ['Mens', 'Womens','Childrens']</small>
             </div>
             <div class="mb-3">
                 <label for="exampleInputPrice" class="form-label pl-6 md:pl-0">Price</label>
                 <input type="number" class="form-control md:w-[400px] w-[90%] mx-auto" id="exampleInputPrice"
                     formControlName="price" name="price">
+                    <small *ngIf="price.invalid && (price.dirty || price.touched)">
+                        <p class="text-red-500"><b>Price is required</b></p>
+                    </small>
             </div>
         </div>
         <div class="mb-3">
             <label for="exampleInputImage" class="form-label  pl-6 md:pl-[240px]">Select Image</label>
             <input type="file" class="form-control md:w-[400px] w-[90%] mx-auto md:mx-0" id="exampleInputImage"
                 (change)="onFileSelected($event)">
+                <small *ngIf="image.invalid && (image.dirty || image.touched)">
+                    <p class="text-red-500"><b>Image is required</b></p></small>
         </div>
 
         <button type="submit" class="bg-[#2c698d] text-white mb-7 px-3 py-2 rounded-xl">Add Products</button>

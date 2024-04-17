@@ -6,7 +6,7 @@
         <p class="my-2">Contact: {{user.contact}}</p>
     </div>
     <div class=" text-white">
-        <button class="w-[120px] h-[40px] bg-[#272643] ml-20 mt-3 rounded-md" routerLink="/order" (click)="onCloseDialog()">My Orders</button>
+        <button class="w-[120px] h-[40px] bg-[#272643] ml-20 mt-3 rounded-md" routerLink="/order" (click)="onCloseDialog()" *ngIf="authService.getUserRole()=='USER'">My Orders</button>
         <button class="w-[120px] h-[40px] bg-[#272643] ml-20 mt-3 rounded-md" (click)="onCloseDialog()" routerLink="/AdminDashboard" *ngIf="authService.getUserRole()=='ADMIN'">Admin Section</button>
         <button class="w-[120px] h-[40px] bg-[#272643] ml-20 my-3 rounded-md" (click)="logOut()" (click)="onCloseDialog()">Log Out</button>
     </div>

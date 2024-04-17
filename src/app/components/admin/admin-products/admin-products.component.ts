@@ -20,7 +20,7 @@ export class AdminProductsComponent {
     this.productForm = this.fb.group({
       productName:['', [Validators.required]],
       productDescription:['', [Validators.required]],
-      category:['', [Validators.required]],
+      category:['', [Validators.required, this.categoryvalidator]],
       price:['', [Validators.required]],
       image:['', [Validators.required]]
     })
@@ -35,8 +35,17 @@ export class AdminProductsComponent {
     return this.productForm.controls['productDescription']
   }
 
+  categoryvalidator(control: { value: string; }){
+    // return this.productForm.controls['category']
+    const validCategory = ['Mens','Womens','Childrens'];
+    if(control.value && validCategory.indexOf(control.value)=== -1){
+      return {invalidCategory: true}
+    }
+    return null;
+  }
+
   get category(){
-    return this.productForm.controls['category']
+    return this.productForm.get('category')
   }
 
   get price(){
@@ -66,7 +75,35 @@ export class AdminProductsComponent {
     this.previewImage();
   }
 
-  registerproducts(){
+  // registerproducts(){
+  //   console.log(this.productForm.value);
+  //   const formData:FormData = new FormData();
+  //   formData.append('image', this.selectedFile);
+  //   formData.append('productName', this.productForm.get('productName')?.value);
+  //   formData.append('productDescription', this.productForm.get('productDescription')?.value);
+  //   formData.append('category', this.productForm.get('category')?.value);
+  //   formData.append('price', this.productForm.get('price')?.value);
+  //   console.log(formData);
+  //   this.productService.registerProducts(formData).subscribe((response) =>{
+  //     console.log(response)
+  //     this.snackBar.open("Product registered successfully","Close",{duration:3000});
+
+  //   },
+  //   (error) =>{
+  //     console.log(error)
+  //   }
+  //   )
+  // }
+
+  registerProducts(){
+    if(!this.selectedFile){
+      this.snackBar.open("Please select image","Close",{duration:3000});
+      return;
+    }
+    if(this.productForm.invalid){
+      this.snackBar.open("Please fill all the fields","Close",{duration:3000});
+      return;
+    }
     console.log(this.productForm.value);
     const formData:FormData = new FormData();
     formData.append('image', this.selectedFile);
@@ -78,10 +115,10 @@ export class AdminProductsComponent {
     this.productService.registerProducts(formData).subscribe((response) =>{
       console.log(response)
       this.snackBar.open("Product registered successfully","Close",{duration:3000});
-
     },
     (error) =>{
       console.log(error)
+      this.snackBar.open("Something went wrong","Close",{duration:3000});
     }
     )
   }
