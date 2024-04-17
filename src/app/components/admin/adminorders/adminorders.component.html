@@ -1,19 +1,26 @@
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Total Amount</th>
-        <th>Payment</th>
-        <th>Address</th>
-        <th>Date</th>
-    </tr>
-    <tr *ngFor="let order of allOrders">
-        <td>{{ order.fullName }}</td>
-        <td>{{ order.description }}</td>
-        <td>{{ order.totalAmount }}</td>
-        <td>{{ order.paymentType }}</td>
-        <td>{{ order.address }}</td>
-        <td>{{ order.date }}</td>
-    </tr>
-</table>
-<button (click)="generatePDF()" class="btn btn-primary">Generate PDF</button>
+<div class="overflow-x-auto h-[600px]">
+    <div class="py-3 flex justify-between">
+        <p class="text-3xl">All Orders: {{allOrders.length}}</p>
+        <button (click)="generatePDF()" class="btn btn-primary">Generate PDF</button>
+    </div>
+    <table class=" w-full border-collapse table table-primary table-striped">
+        <thead>
+            <tr>
+                <th class="px-4 py-2">Name</th>
+                <th class="px-4 py-2">Description</th>
+                <th class="px-4 py-2">Total_Amt</th>
+                <th class="px-4 py-2">Payment</th>
+                <th class="px-4 py-2">Address</th>
+                <th class="px-4 py-2">Date</th>
+            </tr>
+        </thead>
+        <tr *ngFor="let order of allOrders">
+            <td class="px-4 py-2 border text-sm">{{ order.fullName }}</td>
+            <td class="px-4 py-2 border text-sm">{{ order.description }}</td>
+            <td class="px-4 py-2 border text-sm">{{ order.totalAmount }}</td>
+            <td class="px-4 py-2 border text-sm">{{ order.paymentType }}</td>
+            <td class="px-4 py-2 border text-sm">{{ order.address }}</td>
+            <td class="px-4 py-2 border text-sm">{{ order.date }}</td>
+        </tr>
+    </table>
+</div>

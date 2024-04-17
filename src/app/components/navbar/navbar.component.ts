@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
 import { faCartPlus, faIdBadge, faRightFromBracket, faUser } from '@fortawesome/free-solid-svg-icons'
 import { MatDialog } from '@angular/material/dialog';
 import { ProfileComponent } from '../user/profile/profile.component';
+import { EventEmitter } from 'stream';
 
 @Component({
   selector: 'app-navbar',
@@ -32,7 +33,11 @@ export class NavbarComponent {
  }
 
  getUserProfile(){
-  this.dialog.open(ProfileComponent);
+  const dialogRef = this.dialog.open(ProfileComponent);
+  dialogRef.componentInstance.closeDialog.subscribe(() => {
+      dialogRef.close();
+    
+  })
  }
 
  showFooter():boolean{

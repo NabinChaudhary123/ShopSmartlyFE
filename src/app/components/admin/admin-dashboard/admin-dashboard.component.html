@@ -1,12 +1,23 @@
-<div class="flex justify-between mx-[7%] items center mt-12 ">
-    <div class="bg-[#2c698d] w-[20%] drop-shadow-2xl rounded-xl h-[80%]  text-xl text-center fixed left-[100px] text-white">
-        <div class="userinfo my-8">
+<div class="flex justify-between mx-[7%] items center mt-6 md:mt-12 ">
+    <div class="bg-[#2c698d] md:w-[20%] drop-shadow-2xl rounded-xl md:h-[80%] text-xl text-center left-0 md:left-[100px] fixed text-white">
+        <div class="userinfo my-8 hidden md:block">
             <h1>Nabin Chaudhary</h1>
             <p class="text-[15px]">nabin229chaudhary&#64;gmail.com</p>
             <hr>
         </div>
         
-        <div class="navs">
+        <!-- Convert navs into menus for smaller screens -->
+        <div class="md:hidden flex justify-start" (click)="toggleMenu()">
+            <button class="text-white px-3 py-2 text-xl" id="menu-btn">
+                <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <title>Menu</title>
+                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+                </svg>
+            </button>
+        </div>
+
+        
+        <div class="navs md:block hidden" id="navMenu" [ngClass]="{'hidden': !isMenuOpen, 'block': isMenuOpen}">
             <ul class="flex flex-col justify-center items-center text-black">
                 <button routerLink="/AdminDashboard/AdminHome" class="w-[50%] h-12 bg-[#fff] rounded my-2">Dashboard</button>
                 <button routerLink="/AdminDashboard/AdminProduct" class="w-[50%] h-12 bg-[#fff] rounded my-2">Products</button>
@@ -17,9 +28,8 @@
             </ul>
         </div>
     </div>
-    <div class=" w-[75%] rounded-2xl h-[100%] ml-[27%]">
-        <router-outlet></router-outlet>
-        
+    <div class="w-full md:w-[75%] rounded-2xl h-[100%] ml-0 md:ml-[27%]">
+        <router-outlet></router-outlet>     
     </div>
 </div>
 

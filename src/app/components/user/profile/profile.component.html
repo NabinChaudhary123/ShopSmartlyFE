@@ -1,4 +1,4 @@
-<div class="bg-[#2c698d] w-[270px] h-[300px] fixed top-[70px] right-0 rounded-md">
+<div class="bg-[#2c698d] w-[270px] fixed top-[70px] right-0 rounded-md">
     <div *ngIf="user" class="text-center text-white mt-7">
         <p class="my-2">Hello {{user.fullName}}</p>
         <p class="my-2">{{user.email}}
@@ -6,8 +6,8 @@
         <p class="my-2">Contact: {{user.contact}}</p>
     </div>
     <div class=" text-white">
-        <button class="w-[120px] h-[40px] bg-[#272643] ml-20 mt-3 rounded-md" routerLink="/order">My Orders</button>
-        <button class="w-[120px] h-[40px] bg-[#272643] ml-20 mt-3 rounded-md" routerLink="/AdminDashboard">Admin Section</button>
-        <button class="w-[120px] h-[40px] bg-[#272643] ml-20 mt-3 rounded-md" (click)="logOut()">Log Out</button>
+        <button class="w-[120px] h-[40px] bg-[#272643] ml-20 mt-3 rounded-md" routerLink="/order" (click)="onCloseDialog()">My Orders</button>
+        <button class="w-[120px] h-[40px] bg-[#272643] ml-20 mt-3 rounded-md" (click)="onCloseDialog()" routerLink="/AdminDashboard" *ngIf="authService.getUserRole()=='ADMIN'">Admin Section</button>
+        <button class="w-[120px] h-[40px] bg-[#272643] ml-20 my-3 rounded-md" (click)="logOut()" (click)="onCloseDialog()">Log Out</button>
     </div>
 </div>

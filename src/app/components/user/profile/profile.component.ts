@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { UserService } from '../../../services/user/user.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../../../services/auth/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -12,10 +13,16 @@ export class ProfileComponent {
   user:any;
   constructor(
     private userService:UserService,
-    private router:Router
-  ){
+    private router:Router,
+    public authService:AuthService
+  ){ }
 
+  @Output() closeDialog:EventEmitter<void> = new EventEmitter<void>();
+
+  onCloseDialog(){
+    this.closeDialog.emit();;
   }
+
   ngOnInit(): void {
     let userId = window.localStorage.getItem('userId');
     this.getUserDetails(Number(userId));

@@ -17,4 +17,10 @@ export class AdminDashboardComponent {
     window.localStorage.removeItem('role');
     this.router.navigate(['/login']);
   }
+
+  isMenuOpen = false;
+
+  toggleMenu(){
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 }
