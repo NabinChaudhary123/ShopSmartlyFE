@@ -5,6 +5,7 @@ import { AuthService } from '../../services/auth/auth.service';
 import { User } from '../../interfaces/auth';
 import { Router } from '@angular/router';
 import { error } from 'console';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register',
@@ -36,9 +37,21 @@ export class RegisterComponent {
   constructor(
     private fb:FormBuilder,
      private authService:AuthService,
-     private router:Router){}
+     private router:Router,
+     private snackBar:MatSnackBar
+    ){}
 
   submitDetails(){
+    if(this.registerForm.invalid){
+      if(this.registerForm.errors?.['required']){
+        this.snackBar.open('Please fill the fields', 'Close', { duration: 2000 })
+      }
+      else{
+        this.snackBar.open('Please provide valid details', 'Close', { duration: 2000 })
+        return;
+      }
+      
+    }
     console.log(this.registerForm.value)
     const postData = {...this.registerForm.value};
     this.authService.registerUser(postData as User).subscribe(

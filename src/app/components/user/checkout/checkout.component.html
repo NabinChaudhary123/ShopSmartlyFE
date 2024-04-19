@@ -1,19 +1,15 @@
 <div>
-    <div class="title">Place Order</div>
     <div class="content">
-        <form [formGroup]="orderForm" >
+        <form [formGroup]="orderForm" (ngSubmit)="CheckOut()" >
             <div>
                 <label for="Address"></label>
-                <input type="text" formControlName="address" placeholder="Address">
+                <input type="text" formControlName="address" placeholder="Address" class="w-[200px] h-8 border rounded-lg pl-4 ml-5 my-2">
             </div>
             <div>
                 <label for="Description"></label>
-                <input type="text" formControlName="description" placeholder="Description">
+                <input type="text" formControlName="description" placeholder="Description" class="w-[200px] h-8 border rounded-lg pl-4 ml-5 my-2">
             </div>
-            <div>
-                <button class="btn btn-primary" type="submit" (click)="CheckOut()">CheckOut</button>
-                <button class="btn btn-warning">Close</button>
-            </div>
+                <button class="btn btn-warning ml-[65px] my-3" type="submit" >CheckOut</button>
         </form>
     </div>
 </div>

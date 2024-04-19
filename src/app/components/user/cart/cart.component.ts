@@ -54,7 +54,7 @@ export class CartComponent {
       })
     }
 
-    placeOrder(){
-      return this.dialog.open(CheckoutComponent)
-    }
+    // placeOrder(){
+    //   return this.dialog.open(CheckoutComponent)
+    // }
 }

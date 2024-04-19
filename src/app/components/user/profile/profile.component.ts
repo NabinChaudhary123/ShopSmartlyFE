@@ -2,6 +2,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { UserService } from '../../../services/user/user.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth/auth.service';
+import { MatDialog } from '@angular/material/dialog';
+import { EditProfileComponent } from '../edit-profile/edit-profile.component';
 
 @Component({
   selector: 'app-profile',
@@ -14,7 +16,8 @@ export class ProfileComponent {
   constructor(
     private userService:UserService,
     private router:Router,
-    public authService:AuthService
+    public authService:AuthService,
+    private dialog:MatDialog
   ){ }
 
   @Output() closeDialog:EventEmitter<void> = new EventEmitter<void>();
@@ -43,6 +46,10 @@ export class ProfileComponent {
     window.localStorage.removeItem('userId');
     window.localStorage.removeItem('role');
     this.router.navigate(['/login']);
+  }
+
+  openEditProfile(){
+    this.dialog.open(EditProfileComponent);
   }
 
 }

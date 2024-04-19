@@ -25,4 +25,9 @@ export class OrderService {
   getRecentOrders(){
     return this.http.get<any>(`${this.url}/allOrdersDesc`);
   }
+
+  placeOrder(placeOrderDto:any):Observable<any>{
+    placeOrderDto.userId = window.localStorage.getItem('userId');
+    return this.http.post(`${this.url}/placeOrder`,placeOrderDto)
+  }
 }

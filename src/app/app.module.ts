@@ -24,6 +24,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterComponent } from './components/footer/footer.component';
 import { ProfileComponent } from './components/user/profile/profile.component';
 import { PriceDealsComponent } from './components/user/price-deals/price-deals.component';
+import { EditProfileComponent } from './components/user/edit-profile/edit-profile.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { PriceDealsComponent } from './components/user/price-deals/price-deals.c
     AdminordersComponent,
     FooterComponent,
     ProfileComponent,
-    PriceDealsComponent
+    PriceDealsComponent,
+    EditProfileComponent
     
     
   ],

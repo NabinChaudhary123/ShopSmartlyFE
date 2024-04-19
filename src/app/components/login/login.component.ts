@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth/auth.service';
 import { LoginData } from '../../interfaces/auth';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export const AUTH_HEADER = "authorization";
 
@@ -28,11 +29,20 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private router:Router
+    private router:Router,
+    private snackbar:MatSnackBar
   ) { }
 
 
   onLogin() {
+    if (this.loginForm.invalid) {
+      if (this.email.errors?.['required'] || this.password.errors?.['required']) {
+        this.snackbar.open("Please fill the fields", "Close", { duration: 3000 })
+        return;
+      }
+      
+     
+    }
     console.log(this.loginForm.value);
     const postData = {...this.loginForm.value}
     return this.authService.loginUser(postData as LoginData).subscribe(
@@ -44,15 +54,17 @@ export class LoginComponent {
           window.localStorage.setItem('role',response.role);
         if(postData.email === 'admin@gmail.com'){
           this.router.navigate(['/AdminDashboard'])
+          this.snackbar.open("Welcome Admin, You are successfully logged in", "Close", { duration: 3000 })
         }
         else{
           this.router.navigate(['/landing'])
+          this.snackbar.open("Welcome user, You are successfully logged in", "Close", { duration: 3000 })
         }
       },
       
       error =>{
         console.log(error)
-        alert('Wrong Credentials')
+        this.snackbar.open("Please provide valid credentials", "Close", { duration: 3000 })
       } 
     )
   }

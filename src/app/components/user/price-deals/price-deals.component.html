@@ -6,10 +6,15 @@
 <div *ngIf="scrapedData">
     <h3>Scraped Data:</h3>
     <ul>
-        <li *ngFor="let item of scrapedData" class="border rounded-xl bg-gray-400">
-        <!-- <img [src]="item.imageURL" alt="Product Image", width="100"> -->
-        <a href="{{item.link}}"><h3>Title: {{ item.title }}</h3></a>
-        <p>Price: {{ item.price }}</p>
+        <li *ngFor="let item of scrapedData" class="border rounded-xl bg-gray-400 w-[400px]">
+            <div>
+                <img [src]="item.imageURL" alt="Product Image">
+            </div>
+            <div>
+                <a href="{{item.link}}"><h3>Title: {{ item.title }}</h3></a>
+                <p>Price: {{ item.price }}</p>
+                <p>Image: {{ item.imageURL }}</p>
+            </div> 
         </li>
     </ul>
   </div>
