@@ -1,1 +1,17 @@
-<p>edit-profile works!</p>
+<div class=" bg-[#2c698d] w-full md:w-[500px]  rounded-xl">
+    <h1 class="text-center text-white my-4">Edit Profile</h1>
+    <div>
+        <form [formGroup]="updateForm" (ngSubmit)="onSubmitDetails(userId)">
+            <input type="text" formControlName="fullName" name="fullName" placeholder="Full Name"
+                class="my-2 ml-[50px] w-[75%] md:w-[80%] h-[40px] pl-[20px] rounded-md">
+            <div class="flex justify-between mx-[50px] my-3">
+                <input type="email" formControlName="email" name="email" placeholder="Email"
+                    class="my-2 w-[45%] h-[40px]  rounded-md pl-[20px]">
+                <input type="number" formControlName="contact" name="contact" placeholder="Contact"
+                    class="my-2 w-[45%] h-[40px] rounded-md pl-[20px]">
+            </div>
+            <button class="bg-[#ffffff] px-3 py-2 rounded-lg mb-2" type="submit">Update</button>
+
+        </form>
+    </div>
+</div>

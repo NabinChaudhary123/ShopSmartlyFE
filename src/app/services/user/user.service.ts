@@ -15,4 +15,8 @@ export class UserService {
   getUserDetails(userId:number):Observable<any>{
     return this.http.get<any>(`${this.url}/profile/${userId}`)
   }
+
+  updateUser(userId:number, user:any):Observable<any>{
+    return this.http.put(`${this.url}/updateUser/${userId}`, user)
+  }
 }
