@@ -48,6 +48,12 @@ export class CartComponent {
     }
 
     decreaseProductQuantity(productId:any){
+      const item = this.cartItems.find(item => item.productId === productId);
+        if(item.quantity===1){
+          this.snackBar.open("Quantity cannot be less than 1","Close",{duration:2000})
+          return;
+        }
+      
       this.cartService.decreaseQuantity(productId).subscribe((response) =>{
         this.getCart();
         this.snackBar.open("Quantity decreased","Close",{duration:2000})

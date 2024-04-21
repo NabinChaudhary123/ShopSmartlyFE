@@ -55,11 +55,30 @@ export class RegisterComponent {
     console.log(this.registerForm.value)
     const postData = {...this.registerForm.value};
     this.authService.registerUser(postData as User).subscribe(
-      response => {
+      (response:any) => {
         console.log(response)
-        this.router.navigate(['/login'])
+
+        if(response && response.statusCodeValue === 201){
+          this.router.navigate(['/login'])
+          this.snackBar.open('User registered successfully', 'Close', { duration: 2000 })
+          return;
+        }
+        else if(response && response.statusCodeValue === 400){
+          console.error('Unexpected response: ',response);
+          this.snackBar.open('User already exists', 'Close', {duration:2000})
+          return;
+        }
+       
       },
-      error => console.log(error)
+      error =>{
+        if(error.error && error.error.body){
+          this.snackBar.open(error.error.message, 'Close', { duration: 2000 })
+        }
+        else{
+          console.error(error);
+          this.snackBar.open('An error occured during registration', 'Close', {duration:2000})
+        }
+      }
       
     )
   }

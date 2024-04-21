@@ -1,20 +1,58 @@
 <div>
     <label for="query">Enter search query: </label>
     <input type="text" id="query" [(ngModel)]="query" class="border rounded-lg">
-    <button (click)="scrape()" class="btn btn-primary">Scrape</button>
+    <button (click)="searchProducts()" class="btn btn-primary">Scrape</button>
 </div>
-<div *ngIf="scrapedData">
-    <h3>Scraped Data:</h3>
-    <ul>
-        <li *ngFor="let item of scrapedData" class="border rounded-xl bg-gray-400 w-[400px]">
-            <div>
-                <img [src]="item.imageURL" alt="Product Image">
-            </div>
-            <div>
-                <a href="{{item.link}}"><h3>Title: {{ item.title }}</h3></a>
-                <p>Price: {{ item.price }}</p>
-                <p>Image: {{ item.imageURL }}</p>
-            </div> 
-        </li>
-    </ul>
+
+<div class="flex w-[80%] bg-slate-100 rounded-xl mx-auto justify-evenly">
+    <div *ngIf="etsyProducts.length > 0">
+        <h3 class="text-4xl">Scraped Data: Etsy</h3>
+        <ul>
+            <li *ngFor="let item of etsyProducts" class="border rounded-xl bg-gray-400 w-[400px] mb-2">
+                <div>
+                    <img [src]="item.imageURL" alt="Product Image" class="w-[150px] rounded-xl">
+                </div>
+                <div>
+                    <a href="{{item.link}}" target="_blank" class="my-2">
+                        <h3>Title: {{ item.title }}</h3>
+                    </a>
+                    <p class="my-1">Price: {{ item.price }}</p>
+                    <!-- <p>Image: {{ item.imageURL }}</p> -->
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- ebay -->
+    <div *ngIf="ebayProducts.length > 0">
+        <h3 class="text-4xl">Scraped Data: Ebay</h3>
+        <ul>
+            <li *ngFor="let item of ebayProducts" class="border rounded-xl bg-gray-400 w-[400px] mb-2">
+                <div>
+                    <img [src]="item.imageURL" alt="Product Image" class="w-[150px] rounded-xl">
+                </div>
+                <div>
+                    <a href="{{item.link}}" target="_blank">
+                        <h3>Title: {{ item.title }}</h3>
+                    </a>
+                    <p class="my-1">Price: {{ item.price }}</p>
+                    <!-- <p>Image: {{ item.imageURL }}</p> -->
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div *ngIf="cheapestProduct" class="text-2xl my-4 w-[50%] mx-auto">
+    <h3>{{ comparisonResult }}</h3>
+    <div class="border rounded-xl bg-gray-400 mb-2 flex justify-between mx-3">
+      <div>
+        <img [src]="cheapestProduct.imageURL" alt="Product Image" class="w-[200px] rounded-xl">
+      </div>
+      <div class="w-[400px]">
+        <a [href]="cheapestProduct.link" target="_blank" class="my-2">
+          <h3 class="text-xl">Title: {{ cheapestProduct.title }}</h3>
+        </a>
+        <p class="my-1 text-sm">Price: {{ cheapestProduct.price }}</p>
+      </div>
+    </div>
   </div>
