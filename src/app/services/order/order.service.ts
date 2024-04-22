@@ -19,6 +19,13 @@ export class OrderService {
   getAllOrders():Observable<any>{
     return this.http.get(`${this.url}/allOrders`)
   }
+
+  getTotalOrders():Observable<any>{
+    return this.http.get(`${this.url}/totalOrders`)
+  }
+  getPendingOrders():Observable<any>{
+    return this.http.get(`${this.url}/pendingOrders`)
+  }
   generatePDF(){
     return this.http.get<any>(`${this.url}/generatePDF`);
   }

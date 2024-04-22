@@ -10,6 +10,8 @@ import { OrderService } from '../../../services/order/order.service';
 export class AdminHomeComponent {
 
   recentOrders: any;
+  totalOrders: any;
+  pendingOrders: any;
 
   constructor(
     private http:HttpClient,
@@ -20,6 +22,8 @@ export class AdminHomeComponent {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.getRecentOrders();
+    this.getTotalOrders();
+    this.getPendingOrders();
     
   }
 
@@ -29,5 +33,19 @@ export class AdminHomeComponent {
         this.recentOrders = response;
   })
 }
+  getTotalOrders(){
+    this.orderService.getTotalOrders().subscribe(
+      (response) => {
+        this.totalOrders = response;
+  })
+  }
+
+  getPendingOrders(){
+    this.orderService.getPendingOrders().subscribe(
+      (response) => {
+        this.pendingOrders = response;
+  })
+    
+  }
 
 }
