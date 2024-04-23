@@ -1,48 +1,140 @@
-<div>
-    <label for="query">Enter search query: </label>
-    <input type="text" id="query" [(ngModel)]="query" class="border rounded-lg">
-    <button (click)="searchProducts()" class="btn btn-primary">Scrape</button>
+<div class="mt-10 mb-4">
+    
+    <button class="px-3 py-2 ml-10 bg-[#2c698d] text-sm text-white rounded-lg">Sort by Reviews</button>
+    <button class="px-3 py-2 ml-10 bg-[#2c698d] text-sm text-white rounded-lg">Best Deals</button>
+    
+    <input type="text" id="query" [(ngModel)]="query"
+        class="border rounded-lg w-[400px] h-[50px] ml-[400px] pl-[20px] text-2xl text-[#2c698d]" placeholder="Search for Fashions">
+    <button (click)="searchProducts()"
+        class="px-3 py-2 bg-[#2c698d] text-xl text-white rounded-lg ml-3">Search</button>
+        <label for="sort" class="ml-2">Sort by:</label>
+    <select id="sort" [(ngModel)]="sortBy" (change)="sortProducts()" class="px-2 py-2 border">
+        <option value="priceLowToHigh">Price Low to High</option>
+        <option value="priceHighToLow">Price High to Low</option>
+    </select>
 </div>
 
-<div class="flex w-[80%] bg-slate-100 rounded-xl mx-auto justify-evenly">
-    <div *ngIf="etsyProducts.length > 0">
-        <h3 class="text-4xl">Scraped Data: Etsy</h3>
-        <ul>
-            <li *ngFor="let item of etsyProducts" class="border rounded-xl bg-gray-400 w-[400px] mb-2">
-                <div>
-                    <img [src]="item.imageURL" alt="Product Image" class="w-[150px] rounded-xl">
-                </div>
-                <div>
-                    <a href="{{item.link}}" target="_blank" class="my-2">
-                        <h3>Title: {{ item.title }}</h3>
-                    </a>
-                    <p class="my-1">Price: {{ item.price }}</p>
-                    <!-- <p>Image: {{ item.imageURL }}</p> -->
-                </div>
-            </li>
-        </ul>
+<div *ngIf="loading" class="text-center text-3xl text-[#2c698d]">
+    <p>Please wait, products are loading...</p>
+  </div>
+
+
+<div class="w-[95%] bg-slate-100 rounded-xl mx-auto min-h-[25vh]">
+    <hr><hr>
+    <div class="">
+        <div *ngIf="hmProducts.length > 0">
+            <h3 class="text-3xl text-center my-2">Products with Ratings:</h3>
+            <ul class="grid gap-4 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 w-[97%] mx-auto">
+                <li *ngFor="let item of hmProducts" class="border rounded-xl bg-gray-400 w-[250px] mb-2">
+                    <div>
+                        <img [src]="item.imageURL" alt="Product Image" class="w-[150px]  rounded-xl mx-auto">
+                    </div>
+                    <div>
+                        <a href="{{item.link}}" target="_blank" class="my-2">
+                            <h3>Title: {{ item.title.slice(0,25) }} {{item.title.length > 25 ? '...':''}}</h3>
+                        </a>
+                        <p class="my-1">Price: {{ item.price }}</p>
+                        <p class="my-1">{{item.website}}</p>
+                        <!-- <p>Image: {{ item.imageURL }}</p> -->
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
+<hr><hr><hr>
+<!-- <h1 class="text-3xl text-center my-2">Top Products</h1> -->
     <!-- ebay -->
-    <div *ngIf="ebayProducts.length > 0">
-        <h3 class="text-4xl">Scraped Data: Ebay</h3>
-        <ul>
-            <li *ngFor="let item of ebayProducts" class="border rounded-xl bg-gray-400 w-[400px] mb-2">
-                <div>
-                    <img [src]="item.imageURL" alt="Product Image" class="w-[150px] rounded-xl">
-                </div>
-                <div>
-                    <a href="{{item.link}}" target="_blank">
-                        <h3>Title: {{ item.title }}</h3>
-                    </a>
-                    <p class="my-1">Price: {{ item.price }}</p>
-                    <!-- <p>Image: {{ item.imageURL }}</p> -->
-                </div>
-            </li>
-        </ul>
+    <div class="">
+        <div *ngIf="fjProducts.length > 0">
+            <h3 class="text-4xl">Top Products</h3>
+            <ul class="grid gap-4 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 w-[97%] mx-auto">
+                <li *ngFor="let item of fjProducts" class="border rounded-xl bg-gray-400 w-[250px]">
+                    <div>
+                        <img [src]="item.imageURL" alt="Product Image" class="w-[150px] mx-auto rounded-xl">
+                    </div>
+                    <div>
+                        <a href="{{item.link}}" target="_blank">
+                            <h3>Title: {{ item.title.slice(0,25) }} {{item.title.length > 25 ? '...':''}}</h3>
+                        </a>
+                        <p class="my-1">Price: {{ item.price }}</p>
+                        <p class="my-1">{{item.website}}</p>
+                        <!-- <p>Image: {{ item.imageURL }}</p> -->
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
+
+
+    <!-- ebay -->
+    <div class="">
+        <div *ngIf="snapdealProducts.length > 0">
+            <!-- <h3 class="text-4xl">Scraped Data: snapdealProducts</h3> -->
+            <ul class="grid gap-4 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 w-[97%] mx-auto">
+                <li *ngFor="let item of snapdealProducts" class="border rounded-xl bg-gray-400 w-[250px] mb-2">
+                    <div>
+                        <img [src]="item.imageURL" alt="Product Image" class="w-[150px] mx-auto rounded-xl">
+                    </div>
+                    <div>
+                        <a href="{{item.link}}" target="_blank">
+                            <h3>Title: {{ item.title.slice(0,25) }} {{item.title.length > 25 ? '...':''}}</h3>
+                        </a>
+                        <p class="my-1">Price: {{ item.price }}</p>
+                        <p class="my-1">{{item.website}}</p>
+                        <!-- <p>Image: {{ item.imageURL }}</p> -->
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="">
+        <div *ngIf="abcProducts.length > 0">
+            <!-- <h3 class="text-4xl">Scraped Data: AberCrombie</h3> -->
+            <ul class="grid gap-4 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 w-[97%] mx-auto">
+                <li *ngFor="let item of abcProducts" class="border rounded-xl bg-gray-400 w-[250px] mb-2">
+                    <div>
+                        <img [src]="item.imageURL" alt="Product Image" class="w-[150px] mx-auto rounded-xl">
+                    </div>
+                    <div>
+                        <a href="{{item.link}}" target="_blank" class="my-2">
+                            <h3>Title: {{ item.title.slice(0,25) }} {{item.title.length > 25 ? '...':''}}</h3>
+                        </a>
+                        <p class="my-1">Price: {{ item.price }}</p>
+                        <p class="my-1">{{item.website}}</p>
+                        <!-- <p>Image: {{ item.imageURL }}</p> -->
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="">
+        <div *ngIf="saltSurfProducts.length > 0">
+            <!-- <h3 class="text-4xl">Scraped Data: AberCrombie</h3> -->
+            <ul class="grid gap-4 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 w-[97%] mx-auto">
+                <li *ngFor="let item of saltSurfProducts" class="border rounded-xl bg-gray-400 w-[250px] mb-2">
+                    <div>
+                        <img [src]="item.imageURL" alt="Product Image" class="w-[150px] mx-auto rounded-xl">
+                    </div>
+                    <div>
+                        <a href="{{item.link}}" target="_blank" class="my-2">
+                            <h3>Title: {{ item.title.slice(0,25) }} {{item.title.length > 25 ? '...':''}}</h3>
+                        </a>
+                        <p class="my-1">Price: {{ item.price }}</p>
+                        <p class="my-1">{{item.website}}</p>
+                        <!-- <p>Image: {{ item.imageURL }}</p> -->
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+   
+
 </div>
 
-<div *ngIf="cheapestProduct" class="text-2xl my-4 w-[50%] mx-auto">
+
+
+<!-- <div *ngIf="cheapestProduct" class="text-2xl my-4 w-[50%] mx-auto">
     <h3>{{ comparisonResult }}</h3>
     <div class="border rounded-xl bg-gray-400 mb-2 flex justify-between mx-3">
       <div>
@@ -55,4 +147,4 @@
         <p class="my-1 text-sm">Price: {{ cheapestProduct.price }}</p>
       </div>
     </div>
-  </div>
+  </div> -->

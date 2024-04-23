@@ -1,21 +1,21 @@
 <div class="w-[100%]">
     <h1 class="text-2xl px-3">Customers</h1>
     
-        <table class="table table-success table-striped w-[100%] border rounded-xl">
+        <table class=" w-full table table-primary border-collapse table-striped">
             <thead>
               <tr>
-                <th scope="col">Full Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">Contact</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Contact</th>
               </tr>
             </thead>
-            <tbody>
+           
               <tr *ngFor="let user of users">
-                <td>{{user.fullName}}</td>
-                <td>{{user.email}}</td>
-                <td>{{user.contact}}</td>
+                <td class="border text-sm py-2 text-center">{{user.fullName}}</td>
+                <td class="border text-sm py-2 text-center">{{user.email}}</td>
+                <td class="border text-sm py-2 text-center">{{user.contact}}</td>
               </tr>
-            </tbody>
+           
           </table>
     
 </div>

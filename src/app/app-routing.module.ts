@@ -15,6 +15,7 @@ import { AdminordersComponent } from './components/admin/adminorders/adminorders
 import { adminGuard } from './guard/admin/admin.guard';
 import { loginGuard } from './guard/login/login.guard';
 import { PriceDealsComponent } from './components/user/price-deals/price-deals.component';
+import { AdmininvoicesComponent } from './components/admin/admininvoices/admininvoices.component';
 
 const routes: Routes = [
   {
@@ -81,6 +82,10 @@ const routes: Routes = [
         path: 'AdminOrder',
         component: AdminordersComponent,
         
+      },
+      {
+        path: 'AdminInvoice',
+        component: AdmininvoicesComponent
       }
     ]
   }

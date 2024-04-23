@@ -1,0 +1,19 @@
+<div class="overflow-x-auto h-[600px]">
+    <div class="py-3 flex justify-between">
+        <p class="text-3xl">Invoices: </p>
+    </div>
+    
+        <div *ngFor="let invoice of invoices" class="border rounded-lg py-2 text-xl">
+            <td class=" px-4 text-sm">ID: {{ invoice.id }}</td>
+            <td class=" px-4 text-sm">Order ID: {{ invoice.order.id }}</td>
+            <td class=" px-4 text-sm">Name: {{ invoice.order.orderDto.fullName }}</td>
+            <td class="pl-[200px] text-sm">Invoice Num: {{ invoice.invoiceNumber }}</td>
+            <div class="mt-4 mb-2">
+                <td class=" px-4 text-sm">Description: {{ invoice.order.description }}</td>
+                <td class="px-4 text-sm">Total Amt: {{ invoice.totalAmount }}</td>
+                <td class=" px-4 text-sm">Address: {{ invoice.order.address }}</td>
+                <td class=" px-4 text-sm">Date: {{ invoice.invoiceDate}}</td>
+            </div>
+            
+        </div>
+</div>
