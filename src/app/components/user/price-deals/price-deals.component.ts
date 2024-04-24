@@ -18,8 +18,8 @@ export class PriceDealsComponent {
   saltSurfProducts: any[] = [];
   freePeopleProducts: any[] = [];
   sortBy: 'priceLowToHigh' | 'priceHighToLow' = 'priceLowToHigh';
-  // comparisonResult: string = '';
-  // cheapestProduct: any = null;
+  comparisonResult: string = '';
+  cheapestProduct: any = null;
   loading: boolean = false;
 
   constructor(
@@ -112,42 +112,42 @@ export class PriceDealsComponent {
 
   
 
-  // comparePrices(): void {
-  //   let ebayCheaper: boolean = false;
-  //   let etsyCheaper: boolean = false;
-  //   let lowestPrice: number = Number.MAX_SAFE_INTEGER;
-  //   let cheapestProduct: any = null;
+  comparePrices(): void {
+    let hmCheaper: boolean = false;
+    let fjCheaper: boolean = false;
+    let lowestPrice: number = Number.MAX_SAFE_INTEGER;
+    let cheapestProduct: any = null;
   
-  //   // Check eBay products
-  //   for (let ebayProduct of this.ebayProducts) {
-  //     let price = parseFloat(ebayProduct.price.replace(/[^0-9.]/g, ''));
-  //     if (price < lowestPrice) {
-  //       lowestPrice = price;
-  //       cheapestProduct = ebayProduct;
-  //       ebayCheaper = true;
-  //     }
-  //   }
+    // Check eBay products
+    for (let hmProduct of this.hmProducts) {
+      let price = parseFloat(hmProduct.price.replace(/[^0-9.]/g, ''));
+      if (price < lowestPrice) {
+        lowestPrice = price;
+        cheapestProduct = hmProduct;
+        hmCheaper = true;
+      }
+    }
   
-  //   // Check Etsy products
-  //   for (let etsyProduct of this.etsyProducts) {
-  //     let price = parseFloat(etsyProduct.price.replace(/[^0-9.]/g, ''));
-  //     if (price < lowestPrice) {
-  //       lowestPrice = price;
-  //       cheapestProduct = etsyProduct;
-  //       etsyCheaper = true;
-  //     }
-  //   }
+    // Check Etsy products
+    for (let fjProduct of this.fjProducts) {
+      let price = parseFloat(fjProduct.price.replace(/[^0-9.]/g, ''));
+      if (price < lowestPrice) {
+        lowestPrice = price;
+        cheapestProduct = fjProduct;
+        fjCheaper = true;
+      }
+    }
   
-  //   if (ebayCheaper) {
-  //     this.comparisonResult = 'eBay has the cheapest product:';
-  //   } else if (etsyCheaper) {
-  //     this.comparisonResult = 'Etsy has the cheapest product:';
-  //   }
+    if (fjCheaper) {
+      this.comparisonResult = 'fj has the cheapest product:';
+    } else if (hmCheaper) {
+      this.comparisonResult = 'H&M has the cheapest product:';
+    }
   
-  //   if (cheapestProduct) {
-  //     this.cheapestProduct = cheapestProduct;
-  //   }
-  // }
+    if (cheapestProduct) {
+      this.cheapestProduct = cheapestProduct;
+    }
+  }
 
 
   sortProductsByPriceLowToHigh(): void {
@@ -166,6 +166,18 @@ export class PriceDealsComponent {
     this.snapdealProducts.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
     this.saltSurfProducts.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
     this.freePeopleProducts.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+  }
+
+  // Function to sort products by review count from high to low
+  sortProductsByReviewDescending(products: any[]): any[] {
+    return products.sort((a, b) => b.reviews - a.reviews);
+  }
+
+  // Call this function when the "Sort by Review" button is clicked
+  sortByReviewDescending(): void {
+    this.hmProducts = this.sortProductsByReviewDescending(this.hmProducts);
+    this.fjProducts = this.sortProductsByReviewDescending(this.fjProducts);
+    // Update other product arrays if needed
   }
 
 }

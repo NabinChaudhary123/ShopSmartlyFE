@@ -1,13 +1,13 @@
 <div class="mt-10 mb-4">
-    
-    <button class="px-3 py-2 ml-10 bg-[#2c698d] text-sm text-white rounded-lg">Sort by Reviews</button>
+
+    <button class="px-3 py-2 ml-10 bg-[#2c698d] text-sm text-white rounded-lg" (click)="sortByReviewDescending()">Sort by Reviews</button>
     <button class="px-3 py-2 ml-10 bg-[#2c698d] text-sm text-white rounded-lg">Best Deals</button>
-    
+
     <input type="text" id="query" [(ngModel)]="query"
-        class="border rounded-lg w-[400px] h-[50px] ml-[400px] pl-[20px] text-2xl text-[#2c698d]" placeholder="Search for Fashions">
-    <button (click)="searchProducts()"
-        class="px-3 py-2 bg-[#2c698d] text-xl text-white rounded-lg ml-3">Search</button>
-        <label for="sort" class="ml-2">Sort by:</label>
+        class="border rounded-lg w-[400px] h-[50px] ml-[400px] pl-[20px] text-2xl text-[#2c698d]"
+        placeholder="Search for Fashions">
+    <button (click)="searchProducts()" class="px-3 py-2 bg-[#2c698d] text-xl text-white rounded-lg ml-3">Search</button>
+    <label for="sort" class="ml-2">Sort by:</label>
     <select id="sort" [(ngModel)]="sortBy" (change)="sortProducts()" class="px-2 py-2 border">
         <option value="priceLowToHigh">Price Low to High</option>
         <option value="priceHighToLow">Price High to Low</option>
@@ -16,14 +16,15 @@
 
 <div *ngIf="loading" class="text-center text-3xl text-[#2c698d]">
     <p>Please wait, products are loading...</p>
-  </div>
+</div>
 
 
 <div class="w-[95%] bg-slate-100 rounded-xl mx-auto min-h-[25vh]">
-    <hr><hr>
+    <hr>
+    <hr>
     <div class="">
         <div *ngIf="hmProducts.length > 0">
-            <h3 class="text-3xl text-center my-2">Products with Ratings:</h3>
+            <h3 class="text-3xl text-center my-2">Products with Reviews:</h3>
             <ul class="grid gap-4 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 w-[97%] mx-auto">
                 <li *ngFor="let item of hmProducts" class="border rounded-xl bg-gray-400 w-[250px] mb-2">
                     <div>
@@ -41,8 +42,10 @@
             </ul>
         </div>
     </div>
-<hr><hr><hr>
-<!-- <h1 class="text-3xl text-center my-2">Top Products</h1> -->
+    <hr>
+    <hr>
+    <hr>
+    <!-- <h1 class="text-3xl text-center my-2">Top Products</h1> -->
     <!-- ebay -->
     <div class="">
         <div *ngIf="fjProducts.length > 0">
@@ -128,23 +131,36 @@
         </div>
     </div>
 
-   
+    <div class="text-2xl my-4 w-[30%] mx-auto">
+        <h3 class="text-center"> H&M has the cheapest product:</h3>
+        <div class="border rounded-xl bg-gray-400 mb-2 flex justify-between mx-3">
+            <div>
+                <img src="../../../../assets/coat.jpg" alt="Product Image" class="w-[150px] rounded-xl">
+            </div>
+            <div class="w-[400px]">
+                <a target="_blank" class="my-2">
+                    <h3 class="text-xl my-3 p-4">Title: Swayny Winter Shirt 2xl - Womens </h3>
+                </a>
+                <p class="my-1 text-sm">Price: 1700 </p>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="cheapestProduct" class="text-2xl my-4 w-[50%] mx-auto">
+        <h3>{{ comparisonResult }}</h3>
+        <div class="border rounded-xl bg-gray-400 mb-2 flex justify-between mx-3">
+            <div>
+                <img [src]="cheapestProduct.imageURL" alt="Product Image" class="w-[200px] rounded-xl">
+            </div>
+            <div class="w-[400px]">
+                <a [href]="cheapestProduct.link" target="_blank" class="my-2">
+                    <h3 class="text-xl">Title: {{ cheapestProduct.title }}</h3>
+                </a>
+                <p class="my-1 text-sm">Price: {{ cheapestProduct.price }}</p>
+            </div>
+        </div>
+    </div>
 
 </div>
 
 
-
-<!-- <div *ngIf="cheapestProduct" class="text-2xl my-4 w-[50%] mx-auto">
-    <h3>{{ comparisonResult }}</h3>
-    <div class="border rounded-xl bg-gray-400 mb-2 flex justify-between mx-3">
-      <div>
-        <img [src]="cheapestProduct.imageURL" alt="Product Image" class="w-[200px] rounded-xl">
-      </div>
-      <div class="w-[400px]">
-        <a [href]="cheapestProduct.link" target="_blank" class="my-2">
-          <h3 class="text-xl">Title: {{ cheapestProduct.title }}</h3>
-        </a>
-        <p class="my-1 text-sm">Price: {{ cheapestProduct.price }}</p>
-      </div>
-    </div>
-  </div> -->
