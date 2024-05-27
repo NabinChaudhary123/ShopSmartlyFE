@@ -16,6 +16,7 @@ import { adminGuard } from './guard/admin/admin.guard';
 import { loginGuard } from './guard/login/login.guard';
 import { PriceDealsComponent } from './components/user/price-deals/price-deals.component';
 import { AdmininvoicesComponent } from './components/admin/admininvoices/admininvoices.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 const routes: Routes = [
   {
@@ -39,8 +40,11 @@ const routes: Routes = [
   },
   {
     path: 'OurProducts',
-    component: OurProductsComponent, 
-    
+    component: OurProductsComponent,  
+  },
+  {
+    path: 'Contact',
+    component: ContactComponent,
   },
   {
     path: 'cart',

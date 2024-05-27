@@ -75,7 +75,7 @@ export class OurProductsComponent {
       
     },
     error=>{
-      this.snackbar.open("Something went wrong","Close",{duration:3000})
+      this.snackbar.open("Something went wrong -> must be user","Close",{duration:3000})
     }
   )}
 

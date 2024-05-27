@@ -43,7 +43,7 @@ export class NavbarComponent {
  showFooter():boolean{
   const currentURL = this.router.url;
   // return !currentURL.includes('AdminDashboard');
-  const excludePages = ['AdminDashboard','login','register'];
+  const excludePages = ['AdminDashboard','login','register','Contact','cart'];
   for(const page of excludePages){
     if(currentURL.includes(page)){
       return false;

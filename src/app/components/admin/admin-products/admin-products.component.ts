@@ -73,42 +73,12 @@ export class AdminProductsComponent {
     this.previewImage();
   }
 
-  // registerproducts(){
-  //   console.log(this.productForm.value);
-  //   const formData:FormData = new FormData();
-  //   formData.append('image', this.selectedFile);
-  //   formData.append('productName', this.productForm.get('productName')?.value);
-  //   formData.append('productDescription', this.productForm.get('productDescription')?.value);
-  //   formData.append('category', this.productForm.get('category')?.value);
-  //   formData.append('price', this.productForm.get('price')?.value);
-  //   console.log(formData);
-  //   this.productService.registerProducts(formData).subscribe((response) =>{
-  //     console.log(response)
-  //     this.snackBar.open("Product registered successfully","Close",{duration:3000});
-
-  //   },
-  //   (error) =>{
-  //     console.log(error)
-  //   }
-  //   )
-  // }
 
   registerProducts() {
-    // if (this.productForm.invalid) {
-    //   this.snackBar.open('Please fill all the fields', 'Close', {
-    //     duration: 3000,
-    //   });
-    //   return;
-    // }
     if (!this.selectedFile) {
       this.snackBar.open('Please select image', 'Close', { duration: 3000 });
       return;
     }
-    //    // Check if the file input field has been touched
-    // if (this.productForm.get('image')?.touched && this.productForm.get('image')?.invalid) {
-    //   this.snackBar.open("Please select a valid image file", "Close", { duration: 3000 });
-    //   return;
-    // }
     if (!this.productForm.get('productName')?.value) {
       this.snackBar.open('Please enter product name', 'Close', {
         duration: 3000,
@@ -150,9 +120,13 @@ export class AdminProductsComponent {
     this.productService.registerProducts(formData).subscribe(
       (response) => {
         console.log(response);
+        this.productForm.reset();
         this.snackBar.open('Product registered successfully', 'Close', {
-          duration: 3000,
-        });
+          duration: 3000
+        },
+        
+        
+      );
       },
       (error) => {
         console.log(error);
@@ -178,6 +152,8 @@ export class AdminProductsComponent {
     console.log(productId);
     this.productService.deleteProduct(productId).subscribe((response) => {
       console.log(response);
+      // Remove the deleted product from the products array
+      this.products = this.products.filter((product: any) => product.productId !== productId);
       this.snackBar.open('Product deleted successfully', 'Close', {
         duration: 3000,
       });

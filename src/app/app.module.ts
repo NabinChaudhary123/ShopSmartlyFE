@@ -26,6 +26,7 @@ import { ProfileComponent } from './components/user/profile/profile.component';
 import { PriceDealsComponent } from './components/user/price-deals/price-deals.component';
 import { EditProfileComponent } from './components/user/edit-profile/edit-profile.component';
 import { AdmininvoicesComponent } from './components/admin/admininvoices/admininvoices.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { AdmininvoicesComponent } from './components/admin/admininvoices/adminin
     ProfileComponent,
     PriceDealsComponent,
     EditProfileComponent,
-    AdmininvoicesComponent
+    AdmininvoicesComponent,
+    ContactComponent
     
     
   ],

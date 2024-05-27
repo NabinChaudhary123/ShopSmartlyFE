@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { faCartPlus, faGlobe, faMoneyBill } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-landing',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class LandingComponent {
 
+  priceTag = faMoneyBill
+  convenience = faCartPlus
+  solution = faGlobe
 }

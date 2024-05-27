@@ -1,7 +1,7 @@
 <div *ngIf="cartItems.length > 0; else emptyCart" class="flex flex-col md:flex-row md:justify-between w-full md:w-[50%] mx-auto">
-    <div class="w-full md:w-[60%] bg-gray-200 mt-8 rounded-lg">
+    <div class="w-full md:w-[60%] bg-gray-200 mt-[100px] rounded-lg">
         <h1 class="text-3xl py-4 px-6">Your shopping cart</h1>
-        <div *ngFor="let item of cartItems" class="w-full md:w-[450px] mx-auto border pb-4 px-6">
+        <div *ngFor="let item of cartItems" class="w-full md:w-[450px] mx-auto pb-4 px-6">
             <div class="flex">
                 <div class="">
                     <img [src]="item.processedImg" alt="image of product" class="rounded-lg w-[100px] h-[100px]">
@@ -28,7 +28,7 @@
         </div>
     </div>
 
-    <div class="mt-8 border h-[250px] w-[240px] rounded-lg">
+    <div class="mt-[100px] border h-[250px] w-[240px] rounded-lg">
         <h1 class="text-3xl pt-4 pb-2 px-6">CheckOut</h1>
         <div class="total-price px-6">
             Total Amount: {{ order.totalAmount | currency }}
